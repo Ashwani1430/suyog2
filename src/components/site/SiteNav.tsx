@@ -72,7 +72,7 @@ export function SiteNav() {
             onClick={() => setOpen((v) => !v)}
             className="grid size-10 place-items-center rounded-xl border bg-secondary/50 xl:hidden"
           >
-            {open ? <Menu className="size-5 opacity-0" /> : <Menu className="size-5" />}
+            <Menu className="size-5" />
           </button>
         </div>
       </nav>
