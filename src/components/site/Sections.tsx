@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Check, Phone } from "lucide-react";
 
 import timelineVisual from "@/assets/timeline-visual.jpg";
-import { CLIENTS, CONTACT, FLOW_STEPS, TRUST_ITEMS, WHY_SUYOG } from "@/data/suyog";
+import { CLIENTS, FLOW_STEPS, PRIMARY_TEL, TRUST_ITEMS, WHY_SUYOG } from "@/data/suyog";
 import { Counter, Icon, Reveal, Section, SectionHeading } from "./primitives";
 
 export function TrustStrip() {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Loader2, MapPin, Phone, Send } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { CONTACT } from "@/data/suyog";
+import { CONTACT, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
 import { Reveal, Section } from "./primitives";
 
 type Errors = Partial<Record<"name" | "email" | "mobile" | "subject" | "message", string>>;

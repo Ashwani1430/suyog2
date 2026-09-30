@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { CONTACT, NAV_LINKS } from "@/data/suyog";
+import { CONTACT, NAV_LINKS, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);

@@ -79,7 +79,7 @@ export function Reveal({
   );
 }
 
-export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
+export function Counter({ to, suffix = "" }: { to: number; suffix?: string | undefined }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const value = useMotionValue(0);
