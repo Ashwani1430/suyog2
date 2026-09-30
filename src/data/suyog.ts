@@ -15,7 +15,7 @@ export const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const TRUST_ITEMS = [
+export const TRUST_ITEMS: { value?: number; suffix?: string; label: string }[] = [
   { value: 30, suffix: "+", label: "Years Experience" },
   { label: "Tally Expertise" },
   { label: "Customized Solutions" },
