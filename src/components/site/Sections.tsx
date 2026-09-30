@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Check, Phone } from "lucide-react";
 
 import timelineVisual from "@/assets/timeline-visual.jpg";
-import { CLIENTS, CONTACT, FLOW_STEPS, TRUST_ITEMS, WHY_SUYOG } from "@/data/suyog";
+import { CLIENTS, FLOW_STEPS, PRIMARY_TEL, TRUST_ITEMS, WHY_SUYOG } from "@/data/suyog";
 import { Counter, Icon, Reveal, Section, SectionHeading } from "./primitives";
 
 export function TrustStrip() {
@@ -258,7 +258,7 @@ export function LeadCta() {
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
-              href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
+              href={`tel:${PRIMARY_TEL}`}
               className="inline-flex items-center gap-2 rounded-full border bg-secondary/40 px-7 py-4 text-sm font-semibold transition-colors hover:bg-secondary/70"
             >
               <Phone className="size-4 text-primary" />

@@ -115,7 +115,7 @@ export function SuyogProducts() {
 
 export function Industries() {
   const [active, setActive] = useState(0);
-  const industry = INDUSTRIES[active];
+  const industry = INDUSTRIES[active] ?? INDUSTRIES[0]!;
 
   return (
     <Section>

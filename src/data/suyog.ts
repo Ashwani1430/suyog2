@@ -15,7 +15,7 @@ export const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const TRUST_ITEMS = [
+export const TRUST_ITEMS: { value?: number; suffix?: string; label: string }[] = [
   { value: 30, suffix: "+", label: "Years Experience" },
   { label: "Tally Expertise" },
   { label: "Customized Solutions" },
@@ -54,7 +54,13 @@ export const TALLY_PRODUCTS = [
   },
 ];
 
-export const SUYOG_PRODUCTS = [
+export const SUYOG_PRODUCTS: {
+  name: string;
+  tagline: string;
+  icon: string;
+  features: string[];
+  featured?: boolean;
+}[] = [
   {
     name: "EduWeb_eLOGiPay",
     tagline: "Schools, engineering colleges & universities",
@@ -299,3 +305,6 @@ export const CLIENTS = [
   "Remote Sensing Applications Centre (RSAC-UP)",
   "JET Knitwear Ltd.",
 ];
+
+export const PRIMARY_PHONE = CONTACT.phones[0] ?? "";
+export const PRIMARY_TEL = PRIMARY_PHONE.replace(/\s/g, "");
