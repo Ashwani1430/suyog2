@@ -54,7 +54,13 @@ export const TALLY_PRODUCTS = [
   },
 ];
 
-export const SUYOG_PRODUCTS = [
+export const SUYOG_PRODUCTS: {
+  name: string;
+  tagline: string;
+  icon: string;
+  features: string[];
+  featured?: boolean;
+}[] = [
   {
     name: "EduWeb_eLOGiPay",
     tagline: "Schools, engineering colleges & universities",
