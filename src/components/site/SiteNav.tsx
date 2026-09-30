@@ -112,10 +112,10 @@ export function SiteNav() {
               Talk to an Expert
             </a>
             <a
-              href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
+              href={`tel:${PRIMARY_TEL}`}
               className="flex items-center justify-center gap-2 rounded-full border px-6 py-4 font-semibold"
             >
-              <Phone className="size-4" /> {CONTACT.phones[0]}
+              <Phone className="size-4" /> {PRIMARY_PHONE}
             </a>
           </div>
         </div>
@@ -128,7 +128,7 @@ export function MobileStickyCta() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t glass-strong px-4 py-3 sm:hidden">
       <a
-        href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
+        href={`tel:${PRIMARY_TEL}`}
         className="flex flex-1 items-center justify-center gap-2 rounded-full border px-4 py-3 text-sm font-semibold"
       >
         <Phone className="size-4" /> Call

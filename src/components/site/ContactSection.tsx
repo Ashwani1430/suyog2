@@ -170,8 +170,8 @@ export function ContactSection() {
               {status === "sent" ? (
                 <p className="text-sm text-primary">
                   Thank you — your enquiry is noted. Please also call{" "}
-                  <a href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`} className="underline">
-                    {CONTACT.phones[0]}
+                  <a href={`tel:${PRIMARY_TEL}`} className="underline">
+                    {PRIMARY_PHONE}
                   </a>{" "}
                   for an immediate response.
                 </p>

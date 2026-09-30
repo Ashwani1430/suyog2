@@ -305,3 +305,6 @@ export const CLIENTS = [
   "Remote Sensing Applications Centre (RSAC-UP)",
   "JET Knitwear Ltd.",
 ];
+
+export const PRIMARY_PHONE = CONTACT.phones[0] ?? "";
+export const PRIMARY_TEL = PRIMARY_PHONE.replace(/\s/g, "");

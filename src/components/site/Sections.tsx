@@ -258,7 +258,7 @@ export function LeadCta() {
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
-              href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
+              href={`tel:${PRIMARY_TEL}`}
               className="inline-flex items-center gap-2 rounded-full border bg-secondary/40 px-7 py-4 text-sm font-semibold transition-colors hover:bg-secondary/70"
             >
               <Phone className="size-4 text-primary" />
