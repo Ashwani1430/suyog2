@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
@@ -9,6 +9,15 @@ export function Customized() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const active = openIndex === null ? null : CASE_STUDIES[openIndex];
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenIndex(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openIndex]);
 
   const scrollBy = (dir: 1 | -1) => {
     trackRef.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
