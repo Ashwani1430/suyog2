@@ -14,10 +14,7 @@ export function SiteFooter() {
       <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-xl bg-[image:var(--gradient-accent)] text-sm font-bold text-primary-foreground">
-              S
-            </span>
-            <span className="text-lg font-semibold">SUYOG</span>
+            <img src="/logo.png" alt="SUYOG Logo" className="h-12 w-auto" />
           </div>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
             Kanpur-based IT and Tally solutions company serving businesses since {CONTACT.since} —

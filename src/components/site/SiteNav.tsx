@@ -34,15 +34,7 @@ export function SiteNav() {
         className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:h-20"
       >
         <a href="#home" className="group flex items-center gap-3">
-          <span className="grid size-9 place-items-center rounded-xl bg-[image:var(--gradient-accent)] text-sm font-bold text-primary-foreground">
-            S
-          </span>
-          <span className="text-lg font-semibold tracking-tight">
-            SUYOG
-            <span className="ml-2 hidden text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-              since {CONTACT.since}
-            </span>
-          </span>
+          <img src="/logo.png" alt="SUYOG Logo" className="h-12 w-auto" />
         </a>
 
         <ul className="hidden items-center gap-1 xl:flex">
