@@ -20,22 +20,22 @@ export function TallyProducts() {
         body="Licensing, implementation, upgrades and support across the Tally product line — set up the way your organisation works."
       />
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
         {TALLY_PRODUCTS.map((product, i) => (
-          <Reveal key={product.name} delay={i * 0.07} className="h-full flex">
-            <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col">
-              <article className="gradient-ring group flex h-full flex-col justify-between rounded-3xl glass p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
+          <Reveal key={product.name} delay={i * 0.07} className="w-full h-full flex justify-center">
+            <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+              <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group flex h-full flex-col justify-between rounded-3xl glass p-6 sm:p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
                 <div>
                   <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
                     <Icon name={product.icon} className="size-6" />
                   </span>
-                  <h3 className="mt-5 min-h-[3rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                  <h3 className="mt-5 min-h-[2.75rem] text-lg font-bold tracking-tight text-foreground flex items-center">
                     {product.name}
                   </h3>
-                  <p className="mt-2 min-h-[4.5rem] text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-2 min-h-[4.25rem] text-xs leading-relaxed text-muted-foreground">
                     {product.description}
                   </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5">
+                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[135px]">
                     {product.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-xs font-medium text-foreground/85">
                         <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
@@ -76,11 +76,11 @@ export function SuyogProducts() {
         body="Industry modules built by SUYOG that sit on top of TallyPrime — giving you specialized workflows without leaving your accounting system."
       />
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
         {SUYOG_PRODUCTS.map((product, i) => (
-          <Reveal key={product.name} delay={i * 0.05} className="h-full flex">
-            <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col">
-              <article className="gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl glass p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
+          <Reveal key={product.name} delay={i * 0.05} className="w-full h-full flex justify-center">
+            <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+              <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl glass p-6 sm:p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
@@ -91,14 +91,14 @@ export function SuyogProducts() {
                     </span>
                   </div>
 
-                  <h3 className="mt-5 min-h-[2rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                  <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
                     {product.name}
                   </h3>
-                  <p className="mt-1 min-h-[2.5rem] text-xs font-semibold text-primary line-clamp-2">
+                  <p className="mt-1 min-h-[2.5rem] text-xs font-semibold text-primary line-clamp-2 flex items-center">
                     {product.tagline}
                   </p>
 
-                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5">
+                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[140px]">
                     {product.features.map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-xs font-medium text-foreground/80">
                         <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
@@ -123,9 +123,9 @@ export function SuyogProducts() {
         ))}
 
         {/* 9th Symmetrical Card: Custom TDL Module Inquiry */}
-        <Reveal delay={0.4} className="h-full flex">
-          <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col">
-            <article className="gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50/60 via-white to-blue-50/40 p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
+        <Reveal delay={0.4} className="w-full h-full flex justify-center">
+          <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+            <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50/60 via-white to-blue-50/40 p-6 sm:p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
               <div>
                 <div className="flex items-center justify-between">
                   <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25">
@@ -136,14 +136,14 @@ export function SuyogProducts() {
                   </span>
                 </div>
 
-                <h3 className="mt-5 min-h-[2rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
                   Custom TDL &amp; API Integration
                 </h3>
-                <p className="mt-1 min-h-[2.5rem] text-xs font-semibold text-blue-700">
+                <p className="mt-1 min-h-[2.5rem] text-xs font-semibold text-blue-700 flex items-center">
                   Custom ERP &amp; third-party software integration
                 </p>
 
-                <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5">
+                <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[140px]">
                   {[
                     "Custom voucher formats & invoice printing",
                     "Third-party CRM / E-Commerce Tally bridge",
@@ -212,45 +212,47 @@ export function Industries() {
           ))}
         </div>
 
-        <Tilt3DCard maxTilt={6}>
-          <motion.div
-            key={industry.name}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="relative overflow-hidden rounded-3xl glass-strong border border-primary/20 p-8 shadow-[0_20px_50px_rgba(30,96,255,0.15)] lg:p-10"
-          >
-            <div className="pointer-events-none absolute inset-0 hero-glow opacity-80" aria-hidden="true" />
-            <div className="relative">
-              <span className="grid size-14 place-items-center rounded-2xl bg-[image:var(--gradient-accent)] text-white shadow-[0_8px_20px_rgba(30,96,255,0.3)]">
-                <Icon name={industry.icon} className="size-7" />
-              </span>
-              <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground">{industry.name}</h3>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">{industry.note}</p>
-              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Recommended SUYOG solutions
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2.5">
-                {industry.solutions.map((s) => (
-                  <li
-                    key={s}
-                    className="flex items-center gap-2 rounded-full border border-primary/20 bg-surface px-4 py-2 text-sm font-semibold text-foreground shadow-xs"
-                  >
-                    <Sparkles className="size-3.5 text-primary" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#contact"
-                className="btn-shimmer group mt-9 inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-accent)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(30,96,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_35px_rgba(30,96,255,0.4)]"
-              >
-                Discuss your requirement
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </div>
-          </motion.div>
-        </Tilt3DCard>
+        <div className="w-full max-w-2xl mx-auto lg:max-w-none">
+          <Tilt3DCard maxTilt={6}>
+            <motion.div
+              key={industry.name}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="relative overflow-hidden rounded-3xl glass-strong border border-primary/20 p-6 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(30,96,255,0.15)]"
+            >
+              <div className="pointer-events-none absolute inset-0 hero-glow opacity-80" aria-hidden="true" />
+              <div className="relative">
+                <span className="grid size-14 place-items-center rounded-2xl bg-[image:var(--gradient-accent)] text-white shadow-[0_8px_20px_rgba(30,96,255,0.3)]">
+                  <Icon name={industry.icon} className="size-7" />
+                </span>
+                <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground">{industry.name}</h3>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">{industry.note}</p>
+                <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                  Recommended SUYOG solutions
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2.5">
+                  {industry.solutions.map((s) => (
+                    <li
+                      key={s}
+                      className="flex items-center gap-2 rounded-full border border-primary/20 bg-surface px-4 py-2 text-sm font-semibold text-foreground shadow-xs"
+                    >
+                      <Sparkles className="size-3.5 text-primary" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#contact"
+                  className="btn-shimmer group mt-9 inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-accent)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(30,96,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_35px_rgba(30,96,255,0.4)]"
+                >
+                  Discuss your requirement
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </motion.div>
+          </Tilt3DCard>
+        </div>
       </div>
     </Section>
   );

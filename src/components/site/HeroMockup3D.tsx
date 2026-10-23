@@ -209,7 +209,7 @@ export function HeroMockup3D() {
 
       {/* Floating 3D Holographic Layer 2: Bottom Left Badge */}
       <div
-        className="float-slow-reverse absolute -bottom-6 -left-4 sm:-left-8 flex items-center gap-3 rounded-2xl border border-blue-200/90 bg-white/95 px-4 py-3 shadow-[0_20px_40px_rgba(29,78,216,0.2)] backdrop-blur-xl"
+        className="float-slow-reverse absolute -bottom-5 left-2 sm:-left-8 flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-blue-200/90 bg-white/95 px-3 py-2 sm:px-4 sm:py-3 shadow-[0_20px_40px_rgba(29,78,216,0.2)] backdrop-blur-xl"
         style={{
           transform: "translateZ(85px)",
           transformStyle: "preserve-3d",

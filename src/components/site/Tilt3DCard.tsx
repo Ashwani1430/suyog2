@@ -62,7 +62,7 @@ export function Tilt3DCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={cn("perspective-1000", containerClassName)}
+      className={cn("perspective-1000 w-full", containerClassName)}
     >
       <motion.div
         style={{
@@ -74,7 +74,7 @@ export function Tilt3DCard({
           scale: isHovered ? 1.02 : 1,
         }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className={cn("relative preserve-3d will-change-transform", className)}
+        className={cn("relative preserve-3d will-change-transform w-full", className)}
       >
         {children}
 

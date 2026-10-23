@@ -174,16 +174,18 @@ export function WhySuyog() {
         }
         body="Practical engineering, deep accounting insight, and relentless support across North India's thriving enterprises."
       />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
         {WHY_SUYOG.map((item, i) => (
-          <Reveal key={item.title} delay={i * 0.06}>
-            <Tilt3DCard maxTilt={8} className="h-full">
-              <article className="gradient-ring group h-full rounded-3xl glass p-8 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
-                <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
-                  <Icon name={item.icon} className="size-6" />
-                </span>
-                <h3 className="mt-6 text-xl font-bold tracking-tight text-foreground">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+          <Reveal key={item.title} delay={i * 0.06} className="w-full h-full flex justify-center">
+            <Tilt3DCard maxTilt={8} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+              <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group flex flex-col justify-between h-full rounded-3xl glass p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
+                <div>
+                  <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
+                    <Icon name={item.icon} className="size-6" />
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold tracking-tight text-foreground">{item.title}</h3>
+                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                </div>
               </article>
             </Tilt3DCard>
           </Reveal>
@@ -212,16 +214,18 @@ export function FlowVisual() {
           className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-[image:var(--gradient-accent)] opacity-40 lg:block"
           aria-hidden="true"
         />
-        <ol className="grid gap-6 lg:grid-cols-5">
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
           {FLOW_STEPS.map((step, i) => (
-            <Reveal as="li" key={step.title} delay={i * 0.1}>
-              <Tilt3DCard maxTilt={6} className="h-full">
-                <div className="relative h-full rounded-3xl glass border border-primary/15 p-7 shadow-[0_8px_24px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_16px_36px_rgba(30,96,255,0.14)]">
-                  <span className="font-display text-xs font-bold tracking-[0.2em] text-primary">
-                    0{i + 1}
-                  </span>
-                  <h3 className="mt-3 text-base font-bold text-foreground">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+            <Reveal as="li" key={step.title} delay={i * 0.1} className="w-full h-full flex justify-center">
+              <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+                <div className="w-full max-w-md sm:max-w-none mx-auto relative flex flex-col justify-between h-full rounded-3xl glass border border-primary/15 p-6 shadow-[0_8px_24px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_16px_36px_rgba(30,96,255,0.14)]">
+                  <div>
+                    <span className="font-display text-xs font-bold tracking-[0.2em] text-primary">
+                      0{i + 1}
+                    </span>
+                    <h3 className="mt-3 text-base font-bold text-foreground">{step.title}</h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                  </div>
                   <motion.span
                     aria-hidden="true"
                     className="absolute -bottom-3 left-1/2 hidden size-3 -translate-x-1/2 rounded-full border-2 border-surface bg-primary shadow-[0_0_12px_rgba(30,96,255,0.6)] lg:block"
