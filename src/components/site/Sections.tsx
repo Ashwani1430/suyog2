@@ -183,8 +183,12 @@ export function WhySuyog() {
                   <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
                     <Icon name={item.icon} className="size-6" />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold tracking-tight text-foreground">{item.title}</h3>
-                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                  <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2.5 min-h-[3.75rem] text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                    {item.body}
+                  </p>
                 </div>
               </article>
             </Tilt3DCard>

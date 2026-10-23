@@ -21,7 +21,7 @@ export function Customized() {
   }, [openIndex]);
 
   const scrollBy = (dir: 1 | -1) => {
-    trackRef.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
+    trackRef.current?.scrollBy({ left: dir * 340, behavior: "smooth" });
   };
 
   return (
@@ -57,29 +57,32 @@ export function Customized() {
         </div>
       </div>
 
+      {/* Symmetrical Equal-Height Carousel Track */}
       <div
         ref={trackRef}
-        className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6"
+        className="mt-12 flex items-stretch snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pt-2 px-1"
         style={{ scrollbarWidth: "none" }}
       >
         {CASE_STUDIES.map((study, i) => (
-          <Reveal key={study.client} delay={i * 0.05} className="snap-start shrink-0">
-            <Tilt3DCard maxTilt={8} className="h-full">
+          <Reveal key={study.client} delay={i * 0.05} className="snap-start shrink-0 h-[340px] sm:h-[360px] flex">
+            <Tilt3DCard maxTilt={6} className="h-full flex flex-col" containerClassName="h-full flex">
               <button
                 type="button"
                 onClick={() => setOpenIndex(i)}
-                className="gradient-ring group flex h-full w-[19rem] flex-col rounded-3xl glass p-8 text-left shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.16)] sm:w-[22rem]"
+                className="gradient-ring group flex h-[340px] sm:h-[360px] w-[18rem] sm:w-[21rem] flex-col justify-between rounded-3xl glass p-7 sm:p-8 text-left shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.16)]"
               >
-                <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                  {study.industry}
-                </span>
-                <h3 className="mt-4 text-xl font-bold leading-snug tracking-tight text-foreground">
-                  {study.client}
-                </h3>
-                <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
-                  {study.context}
-                </p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-bold text-primary">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary h-5 flex items-center">
+                    {study.industry}
+                  </span>
+                  <h3 className="mt-3.5 min-h-[3.25rem] max-h-[3.25rem] text-lg sm:text-xl font-bold leading-snug tracking-tight text-foreground line-clamp-2 flex items-start">
+                    {study.client}
+                  </h3>
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-4 overflow-hidden">
+                    {study.context}
+                  </p>
+                </div>
+                <span className="mt-auto pt-6 border-t border-slate-100/90 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary">
                   View case study
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
