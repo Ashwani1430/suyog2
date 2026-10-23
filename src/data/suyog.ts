@@ -16,7 +16,7 @@ export const NAV_LINKS = [
 ];
 
 export const TRUST_ITEMS: { value?: number; suffix?: string; label: string }[] = [
-  { value: 30, suffix: "+", label: "Years Experience" },
+  { value: 36, suffix: "+", label: "Years Experience" },
   { label: "Tally Expertise" },
   { label: "Customized Solutions" },
   { label: "Business Automation" },
@@ -29,28 +29,48 @@ export const TALLY_PRODUCTS = [
     icon: "LayoutDashboard",
     description:
       "The complete business management software for accounting, inventory, compliance and reporting — implemented and configured around how your business actually works.",
-    benefits: ["Accounting & inventory", "GST-ready compliance", "Insightful business reports"],
+    benefits: [
+      "Financial accounting & ledgers",
+      "GST-ready statutory compliance",
+      "Real-time inventory & stock audit",
+      "Management analytical reporting",
+    ],
   },
   {
     name: "Tally Software Services (TSS)",
     icon: "RefreshCw",
     description:
-      "The subscription that keeps your Tally current — product updates, statutory changes and connected Tally capabilities.",
-    benefits: ["Product & statutory updates", "Remote access to data", "Online support services"],
+      "The subscription that keeps your Tally current — continuous statutory upgrades, multi-location sync, and connected digital capabilities.",
+    benefits: [
+      "Instant statutory tax upgrades",
+      "Secure mobile & remote sync",
+      "Automated e-invoice & e-way bills",
+      "Priority online support access",
+    ],
   },
   {
     name: "TallyPrime Server",
     icon: "Server",
     description:
       "An enterprise-class edition for organisations running Tally across many users, with better concurrency, control and data security.",
-    benefits: ["Multi-user performance", "Centralised data control", "Enhanced security"],
+    benefits: [
+      "Multi-user concurrent speed",
+      "Centralized user permission control",
+      "Zero system queue bottlenecks",
+      "High reliability & data security",
+    ],
   },
   {
     name: "Tally on Cloud",
     icon: "Cloud",
     description:
       "Run your Tally from anywhere on a managed cloud setup, so teams and branches work on the same data securely.",
-    benefits: ["Anywhere access", "Managed hosting", "Multi-location teams"],
+    benefits: [
+      "Anywhere, any-device remote access",
+      "Automated multi-tier cloud backup",
+      "Multi-branch live data aggregation",
+      "Zero local server maintenance",
+    ],
   },
 ];
 
@@ -63,59 +83,94 @@ export const SUYOG_PRODUCTS: {
 }[] = [
   {
     name: "EduWeb_eLOGiPay",
-    tagline: "Schools, engineering colleges & universities",
+    tagline: "Universities, colleges & private schools",
     icon: "GraduationCap",
     features: [
-      "Fee management",
-      "Website integration",
-      "Payment gateway integration",
-      "TallyPrime integration",
+      "Fee & student dues tracking",
+      "Online payment gateway integration",
+      "Automatic TallyPrime voucher creation",
+      "Student web portal & dues alerts",
     ],
     featured: true,
   },
   {
     name: "Tally.EduSoft",
-    tagline: "Education & institution management on TallyPrime",
+    tagline: "Educational institution ERP on Tally",
     icon: "School",
-    features: ["Institution management on TallyPrime"],
+    features: [
+      "Admission & enrollment database",
+      "Course-wise fee structure billing",
+      "Staff payroll & biometric attendance",
+      "Multi-counter cash reconciliation",
+    ],
   },
   {
     name: "Tally.BuildSoft",
-    tagline: "Builders, real estate developers & colonisers",
+    tagline: "Real estate developers & builders",
     icon: "Building2",
     features: [
-      "Booking management",
-      "Construction stage billing",
-      "Property management",
-      "PLC management",
-      "Project management",
+      "Unit booking & flat allotment registry",
+      "Construction stage milestone billing",
+      "PLC & installment schedule tracking",
+      "Subcontractor work-order costing",
     ],
     featured: true,
   },
   {
     name: "Tally.AutoSoft",
-    tagline: "Automobile dealerships, two & four wheeler businesses, auto garages",
+    tagline: "Auto dealerships & service workshops",
     icon: "Car",
-    features: ["Vehicle purchase", "Spare parts", "Inventory", "DMS to Tally integration"],
+    features: [
+      "Vehicle purchase & RTO documentation",
+      "Spare parts inventory & barcode tags",
+      "Job card generation & service billing",
+      "Automated DMS to Tally transaction sync",
+    ],
     featured: true,
   },
   {
     name: "Tally.ColdSoft",
-    tagline: "Cold storage businesses",
+    tagline: "Cold storage & agro-warehousing units",
     icon: "Snowflake",
-    features: [],
+    features: [
+      "Chamber & floor rack allocation",
+      "Periodic storage rental billing",
+      "Inward & outward lot gate-passes",
+      "Automated weight loss audit logs",
+    ],
   },
   {
     name: "Jewellery Management",
-    tagline: "Jewellery businesses on TallyPrime",
+    tagline: "Jewellers, wholesalers & retail showrooms",
     icon: "Gem",
-    features: [],
+    features: [
+      "Metal purity & hallmark record",
+      "Making charges & stone valuation",
+      "Old gold exchange voucher accounting",
+      "Item-wise barcode tag printing",
+    ],
   },
   {
     name: "Hospital Management",
-    tagline: "Hospitals & healthcare institutions",
+    tagline: "Hospitals, nursing homes & polyclinics",
     icon: "Stethoscope",
-    features: [],
+    features: [
+      "OPD & IPD billing management",
+      "Doctor consultation & share split",
+      "In-house pharmacy stock tracking",
+      "Direct Tally financial reporting",
+    ],
+  },
+  {
+    name: "Tally.TexSoft",
+    tagline: "Textile mills, weaving & garment units",
+    icon: "Factory",
+    features: [
+      "Yarn, fabric & roll batch tracking",
+      "Dyeing & printing job-work orders",
+      "Loom production output monitor",
+      "GST statutory return automation",
+    ],
   },
 ];
 
@@ -163,10 +218,10 @@ export const INDUSTRIES = [
     note: "Jewellery-specific inventory and billing on TallyPrime.",
   },
   {
-    name: "Other Businesses",
-    icon: "Boxes",
-    solutions: ["Customized Tally solutions"],
-    note: "If your workflow is unique, SUYOG builds the customization around it.",
+    name: "Textiles",
+    icon: "Factory",
+    solutions: ["Tally.TexSoft", "Customized Tally solutions"],
+    note: "Job work, weaving, yarn inventory and loom tracking on TallyPrime.",
   },
 ];
 
@@ -259,7 +314,7 @@ export const CASE_STUDIES = [
 export const WHY_SUYOG = [
   {
     icon: "History",
-    title: "30+ Years of Experience",
+    title: "36+ Years of Experience",
     body: "Serving businesses since 1990, with the perspective that only long practice gives.",
   },
   {

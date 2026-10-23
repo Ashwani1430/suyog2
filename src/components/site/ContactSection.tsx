@@ -4,6 +4,7 @@ import { Loader2, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CONTACT, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
 import { Reveal, Section } from "./primitives";
+import { Tilt3DCard } from "./Tilt3DCard";
 
 type Errors = Partial<Record<"name" | "email" | "mobile" | "subject" | "message", string>>;
 
@@ -55,19 +56,21 @@ export function ContactSection() {
     <Section id="contact">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Contact</p>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Contact</p>
+          <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Let&apos;s Talk About <span className="gradient-text">Your Business</span>
           </h2>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
             Reach SUYOG in Kanpur for Tally implementation, TallyPrime customization, industry
             modules or long-term support.
           </p>
 
           <div className="mt-10 space-y-4">
-            <div className="flex gap-4 rounded-3xl glass p-6">
-              <MapPin className="mt-1 size-5 shrink-0 text-primary" />
-              <address className="text-sm not-italic leading-relaxed text-muted-foreground">
+            <div className="flex gap-4 rounded-3xl glass border border-primary/15 p-6 shadow-xs transition-colors hover:border-primary/40">
+              <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
+                <MapPin className="size-5" />
+              </div>
+              <address className="text-sm font-medium not-italic leading-relaxed text-foreground/80">
                 {CONTACT.address.map((line) => (
                   <span key={line} className="block">
                     {line}
@@ -75,14 +78,16 @@ export function ContactSection() {
                 ))}
               </address>
             </div>
-            <div className="flex gap-4 rounded-3xl glass p-6">
-              <Phone className="mt-1 size-5 shrink-0 text-primary" />
-              <div className="flex flex-col gap-1 text-sm">
+            <div className="flex gap-4 rounded-3xl glass border border-primary/15 p-6 shadow-xs transition-colors hover:border-primary/40">
+              <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
+                <Phone className="size-5" />
+              </div>
+              <div className="flex flex-col gap-1.5 text-sm font-semibold">
                 {CONTACT.phones.map((phone) => (
                   <a
                     key={phone}
                     href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-foreground/80 transition-colors hover:text-primary"
                   >
                     {phone}
                   </a>
@@ -93,91 +98,93 @@ export function ContactSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <form
-            onSubmit={onSubmit}
-            noValidate
-            className="rounded-[2rem] glass-strong p-7 sm:p-9"
-            aria-label="Enquiry form"
-          >
-            <div className="grid gap-5 sm:grid-cols-2">
-              {FIELDS.map((field) => (
-                <div key={field.id} className={cn(field.id === "subject" && "sm:col-span-2")}>
+          <Tilt3DCard maxTilt={5}>
+            <form
+              onSubmit={onSubmit}
+              noValidate
+              className="rounded-[2.5rem] glass-strong border border-primary/25 p-8 shadow-[0_25px_60px_rgba(30,96,255,0.14)] sm:p-10"
+              aria-label="Enquiry form"
+            >
+              <div className="grid gap-5 sm:grid-cols-2">
+                {FIELDS.map((field) => (
+                  <div key={field.id} className={cn(field.id === "subject" && "sm:col-span-2")}>
+                    <label
+                      htmlFor={field.id}
+                      className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-foreground/80"
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      id={field.id}
+                      name={field.id}
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      value={values[field.id]}
+                      onChange={(e) => set(field.id, e.target.value)}
+                      aria-invalid={Boolean(errors[field.id])}
+                      className={cn(
+                        "w-full rounded-2xl border border-primary/20 bg-surface/90 px-4 py-3.5 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:bg-surface focus:shadow-[0_0_16px_rgba(30,96,255,0.2)]",
+                        errors[field.id] && "border-destructive/80",
+                      )}
+                    />
+                    {errors[field.id] ? (
+                      <p className="mt-2 text-xs font-medium text-destructive">{errors[field.id]}</p>
+                    ) : null}
+                  </div>
+                ))}
+
+                <div className="sm:col-span-2">
                   <label
-                    htmlFor={field.id}
-                    className="mb-2 block text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                    htmlFor="message"
+                    className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-foreground/80"
                   >
-                    {field.label}
+                    Message
                   </label>
-                  <input
-                    id={field.id}
-                    name={field.id}
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    value={values[field.id]}
-                    onChange={(e) => set(field.id, e.target.value)}
-                    aria-invalid={Boolean(errors[field.id])}
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    placeholder="Tell us about your business and what you need."
+                    value={values.message}
+                    onChange={(e) => set("message", e.target.value)}
+                    aria-invalid={Boolean(errors.message)}
                     className={cn(
-                      "w-full rounded-2xl border bg-secondary/35 px-4 py-3.5 text-sm outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary/70 focus:bg-secondary/60",
-                      errors[field.id] && "border-destructive/70",
+                      "w-full resize-none rounded-2xl border border-primary/20 bg-surface/90 px-4 py-3.5 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:bg-surface focus:shadow-[0_0_16px_rgba(30,96,255,0.2)]",
+                      errors.message && "border-destructive/80",
                     )}
                   />
-                  {errors[field.id] ? (
-                    <p className="mt-2 text-xs text-destructive">{errors[field.id]}</p>
+                  {errors.message ? (
+                    <p className="mt-2 text-xs font-medium text-destructive">{errors.message}</p>
                   ) : null}
                 </div>
-              ))}
+              </div>
 
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  placeholder="Tell us about your business and what you need."
-                  value={values.message}
-                  onChange={(e) => set("message", e.target.value)}
-                  aria-invalid={Boolean(errors.message)}
-                  className={cn(
-                    "w-full resize-none rounded-2xl border bg-secondary/35 px-4 py-3.5 text-sm outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary/70 focus:bg-secondary/60",
-                    errors.message && "border-destructive/70",
-                  )}
-                />
-                {errors.message ? (
-                  <p className="mt-2 text-xs text-destructive">{errors.message}</p>
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="btn-shimmer group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-accent)] px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(30,96,255,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(30,96,255,0.45)] disabled:opacity-70 sm:w-auto"
+              >
+                {status === "sending" ? (
+                  <Loader2 className="size-4 animate-spin" />
+                ) : (
+                  <Send className="size-4" />
+                )}
+                <span>Send Enquiry</span>
+              </button>
+
+              <div aria-live="polite" className="mt-4 min-h-6">
+                {status === "sent" ? (
+                  <p className="text-sm font-semibold text-primary">
+                    Thank you — your enquiry is noted. Please also call{" "}
+                    <a href={`tel:${PRIMARY_TEL}`} className="underline font-bold">
+                      {PRIMARY_PHONE}
+                    </a>{" "}
+                    for an immediate response.
+                  </p>
                 ) : null}
               </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[image:var(--gradient-accent)] px-7 py-4 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-70 sm:w-auto"
-            >
-              {status === "sending" ? (
-                <Loader2 className="size-4 animate-spin" />
-              ) : (
-                <Send className="size-4" />
-              )}
-              Send Enquiry
-            </button>
-
-            <div aria-live="polite" className="mt-4 min-h-6">
-              {status === "sent" ? (
-                <p className="text-sm text-primary">
-                  Thank you — your enquiry is noted. Please also call{" "}
-                  <a href={`tel:${PRIMARY_TEL}`} className="underline">
-                    {PRIMARY_PHONE}
-                  </a>{" "}
-                  for an immediate response.
-                </p>
-              ) : null}
-            </div>
-          </form>
+            </form>
+          </Tilt3DCard>
         </Reveal>
       </div>
     </Section>
