@@ -54,50 +54,9 @@ export function ContactSection() {
 
   return (
     <Section id="contact">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <Reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Contact</p>
-          <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Let&apos;s Talk About <span className="gradient-text">Your Business</span>
-          </h2>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Reach SUYOG in Kanpur for Tally implementation, TallyPrime customization, industry
-            modules or long-term support.
-          </p>
-
-          <div className="mt-10 space-y-4">
-            <div className="flex gap-4 rounded-3xl glass border border-primary/15 p-6 shadow-xs transition-colors hover:border-primary/40">
-              <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
-                <MapPin className="size-5" />
-              </div>
-              <address className="text-sm font-medium not-italic leading-relaxed text-foreground/80">
-                {CONTACT.address.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </address>
-            </div>
-            <div className="flex gap-4 rounded-3xl glass border border-primary/15 p-6 shadow-xs transition-colors hover:border-primary/40">
-              <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
-                <Phone className="size-5" />
-              </div>
-              <div className="flex flex-col gap-1.5 text-sm font-semibold">
-                {CONTACT.phones.map((phone) => (
-                  <a
-                    key={phone}
-                    href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="text-foreground/80 transition-colors hover:text-primary"
-                  >
-                    {phone}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        {/* Enquiry Form on the Left Side (Desktop) */}
+        <Reveal delay={0.1} className="order-2 lg:order-1">
           <Tilt3DCard maxTilt={5}>
             <form
               onSubmit={onSubmit}
@@ -185,6 +144,49 @@ export function ContactSection() {
               </div>
             </form>
           </Tilt3DCard>
+        </Reveal>
+
+        {/* Contact Information on the Right Side (Desktop) */}
+        <Reveal className="order-1 lg:order-2">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Contact</p>
+          <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            Let&apos;s Talk About <span className="gradient-text">Your Business</span>
+          </h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Reach SUYOG in Kanpur for Tally implementation, TallyPrime customization, industry
+            modules or long-term support.
+          </p>
+
+          <div className="mt-10 space-y-4">
+            <div className="flex gap-4 rounded-3xl glass border border-primary/15 p-6 shadow-xs transition-colors hover:border-primary/40">
+              <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
+                <MapPin className="size-5" />
+              </div>
+              <address className="text-sm font-medium not-italic leading-relaxed text-foreground/80">
+                {CONTACT.address.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+            </div>
+            <div className="flex gap-4 rounded-3xl glass border border-primary/15 p-6 shadow-xs transition-colors hover:border-primary/40">
+              <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
+                <Phone className="size-5" />
+              </div>
+              <div className="flex flex-col gap-1.5 text-sm font-semibold">
+                {CONTACT.phones.map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone.replace(/\s/g, "")}`}
+                    className="text-foreground/80 transition-colors hover:text-primary"
+                  >
+                    {phone}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </Section>
