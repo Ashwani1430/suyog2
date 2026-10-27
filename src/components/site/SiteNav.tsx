@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ChevronRight, Menu, Phone, Sparkles, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { CONTACT, NAV_LINKS, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
+import { CONTACT, FOOTER_LINKS, NAV_LINKS, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -100,8 +100,8 @@ export function SiteNav() {
               <X className="size-5" />
             </button>
           </div>
-          <ul className="mt-6 flex flex-col gap-2">
-            {NAV_LINKS.map((link) => (
+          <ul className="mt-6 flex flex-col gap-2 overflow-y-auto max-h-[60vh] pr-1">
+            {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}

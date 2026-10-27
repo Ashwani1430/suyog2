@@ -8,11 +8,21 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Products", href: "#tally-products" },
+  { label: "ERP Integration", href: "#erp-integration" },
+  { label: "Custom Solutions", href: "#customized" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const FOOTER_LINKS = [
+  { label: "About Us", href: "#about" },
   { label: "Tally Products", href: "#tally-products" },
   { label: "SUYOG Products", href: "#suyog-products" },
+  { label: "ERP Integration", href: "#erp-integration" },
   { label: "Customized Solutions", href: "#customized" },
-  { label: "Clients", href: "#clients" },
-  { label: "Contact", href: "#contact" },
+  { label: "Leading Clients", href: "#clients" },
+  { label: "Trusted Partners", href: "#partners" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 export const TRUST_ITEMS: { value?: number; suffix?: string; label: string }[] = [
@@ -353,12 +363,32 @@ export const FLOW_STEPS = [
 ];
 
 export const CLIENTS = [
-  "Growmore International Ltd.",
+  "Superhouse Group",
+  "UPSRTC",
+  "House of Hiranandani",
+  "G.D. Goenka Public School",
+  "Mohani Tea Leaves",
+  "PSIT Kanpur",
   "Sahara Ganj Mall",
-  "Mantora Oils",
-  "Doctor Soap",
   "Remote Sensing Applications Centre (RSAC-UP)",
   "JET Knitwear Ltd.",
+  "Growmore International Ltd.",
+  "Doctor Soap",
+  "Mantora Oils",
+  "Shoolini University",
+  "Sri Sri Tattva",
+  "St. Mary's Orthodox School",
+  "Methodist High School",
+  "Ambika Group",
+  "Dreamland",
+  "Jeet",
+  "KD Group",
+  "Nirman",
+  "Paloma",
+  "Protech",
+  "Radiant",
+  "Shree Sanatan",
+  "Uttarayan",
 ];
 
 export const PRIMARY_PHONE = CONTACT.phones[0] ?? "";

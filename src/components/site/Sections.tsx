@@ -1,8 +1,9 @@
 import { motion } from "motion/react";
-import { ArrowRight, Check, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Phone, Sparkles, Target } from "lucide-react";
 
 import { AboutTimelineVisual } from "./AboutTimelineVisual";
 import { CLIENTS, FLOW_STEPS, PRIMARY_TEL, TRUST_ITEMS, WHY_SUYOG } from "@/data/suyog";
+import { CLIENT_LOGOS } from "@/data/clientsData";
 import { Counter, Icon, Reveal, Section, SectionHeading } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
 
@@ -68,78 +69,66 @@ export function About() {
           </Tilt3DCard>
         </Reveal>
 
-        {/* Right Column: Symmetrical Enterprise Narrative & Capabilities */}
+        {/* Right Column: Narrative & Mission */}
         <div className="flex flex-col justify-between h-full">
           <div>
             <SectionHeading
               align="left"
-              eyebrow="About SUYOG"
+              eyebrow="About Us"
               title={
                 <>
-                  36+ Years of Technology.
-                  <br />
-                  One Focus — <span className="gradient-text">Your Business.</span>
+                  Welcome to SUYOG —{" "}
+                  <span className="gradient-text">
+                    Empowering Businesses Through Technology Since 1990
+                  </span>
                 </>
               }
-              body="SUYOG has been part of Kanpur's IT landscape since 1990, evolving alongside changing technology and changing business requirements. The work has always been the same at heart: understand how a business runs, then make technology fit it."
+              body="At SUYOG, we believe technology should make business simpler, smarter, and more efficient. With decades of industry experience, we have established ourselves as a trusted IT solutions provider in India, helping businesses streamline operations, improve productivity, and embrace digital transformation."
             />
 
-            {/* Core Pillars Matrix */}
-            <div className="mt-8 grid gap-3.5 sm:grid-cols-2">
-              {[
-                {
-                  title: "36+ Years Proven Track Record",
-                  desc: "Consultative mindset with continuous business practice since 1990.",
-                },
-                {
-                  title: "Deep TallyPrime Architecture",
-                  desc: "Complete implementation, TDL customization, Server & Cloud setup.",
-                },
-                {
-                  title: "Turnkey Custom Software",
-                  desc: "Tailored ERP modules for Real Estate, Education, Auto & Warehousing.",
-                },
-                {
-                  title: "Dedicated Support & SLAs",
-                  desc: "Proactive version migrations, daily security audits & continuous care.",
-                },
-              ].map((item, i) => (
-                <Reveal key={item.title} delay={i * 0.05}>
-                  <div className="h-full rounded-2xl border border-primary/15 bg-surface/90 p-4 shadow-xs transition-colors hover:border-primary/40">
-                    <div className="flex items-center gap-2">
-                      <span className="grid size-6 place-items-center rounded-full bg-primary/10 text-primary shrink-0">
-                        <Check className="size-3.5" />
-                      </span>
-                      <h4 className="text-xs font-bold text-foreground">{item.title}</h4>
-                    </div>
-                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
+            {/* Partner Specialization Card */}
+            <div className="mt-6 rounded-2xl border border-primary/20 bg-gradient-to-br from-blue-50/60 via-surface/90 to-cyan-50/40 p-5 shadow-xs">
+              <div className="flex items-start gap-3">
+                <span className="grid size-7 place-items-center rounded-xl bg-primary/10 text-primary shrink-0 mt-0.5">
+                  <Sparkles className="size-4" />
+                </span>
+                <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+                  As a <strong className="text-foreground font-bold">Tally software solutions and development partner</strong>, we specialize in delivering comprehensive business solutions, including Tally software, customization, cloud solutions, and dedicated technical support. Our focus is on understanding each client's unique needs and providing reliable, practical solutions that drive long-term business growth.
+                </p>
+              </div>
             </div>
 
-            {/* Historical Milestones 2x2 Grid — Compact & Balanced */}
+            {/* Our Story Block */}
             <div className="mt-6 border-t border-slate-100 pt-6">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-primary mb-3">
-                Key Evolutionary Milestones
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <h3 className="text-sm font-bold tracking-tight text-foreground uppercase">
+                  Our Story • Three Decades of Trust, Innovation &amp; Excellence
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Since <strong className="text-foreground font-semibold">1990</strong>, SUYOG has evolved alongside the ever-changing world of technology, consistently adapting to the needs of modern businesses. What began as a commitment to delivering dependable IT solutions has grown into a lasting partnership with businesses across industries.
               </p>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {[
-                  { year: "1990", title: "Inception in Kanpur", body: "Pioneering commercial IT & early business accounting." },
-                  { year: "2005", title: "Custom TDL Era", body: "Specialized software modules built on Tally's core." },
-                  { year: "2017", title: "GST Transition", body: "Leading thousands of businesses into seamless compliance." },
-                  { year: "2026+", title: "Cloud & Connected ERP", body: "Multi-branch synchronization, APIs & automation." },
-                ].map((m) => (
-                  <div key={m.year} className="rounded-xl border border-slate-100 bg-slate-50/70 p-3">
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-extrabold text-primary">
-                        {m.year}
-                      </span>
-                      <span className="text-xs font-bold text-foreground">{m.title}</span>
-                    </div>
-                    <p className="mt-1 text-[11px] text-muted-foreground">{m.body}</p>
-                  </div>
-                ))}
+              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Over the years, we have combined technical expertise, continuous innovation, and a customer-first approach to help organizations simplify complex processes and work more efficiently. We understand that every business has different goals, which is why we focus on providing solutions that are practical, scalable, and tailored to real-world requirements.
+              </p>
+              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                Today, SUYOG continues to build on its legacy of trust by helping businesses make the most of technology through reliable software solutions, expert guidance, and responsive support.
+              </p>
+            </div>
+
+            {/* Mission Statement Callout */}
+            <div className="mt-6 rounded-2xl border-l-4 border-l-primary border border-primary/15 bg-primary/5 p-4 sm:p-5 shadow-xs">
+              <div className="flex items-start gap-3">
+                <span className="grid size-7 place-items-center rounded-xl bg-primary text-white shrink-0 mt-0.5 shadow-sm shadow-primary/30">
+                  <Target className="size-4" />
+                </span>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-primary">Our Mission</p>
+                  <p className="mt-1 text-xs sm:text-sm font-semibold text-foreground leading-relaxed">
+                    Our mission remains the same: to simplify business operations, empower growth, and build lasting relationships through technology.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -247,9 +236,12 @@ export function FlowVisual() {
 }
 
 export function Clients() {
-  const row = [...CLIENTS, ...CLIENTS];
+  const mid = Math.ceil(CLIENT_LOGOS.length / 2);
+  const row1 = [...CLIENT_LOGOS.slice(0, mid), ...CLIENT_LOGOS.slice(0, mid)];
+  const row2 = [...CLIENT_LOGOS.slice(mid), ...CLIENT_LOGOS.slice(mid)];
+
   return (
-    <Section id="clients" className="border-y border-primary/10 bg-secondary/25">
+    <Section id="clients" className="border-y border-primary/10 bg-gradient-to-b from-secondary/30 via-white to-secondary/20 py-20">
       <SectionHeading
         eyebrow="Clients"
         title={
@@ -257,21 +249,50 @@ export function Clients() {
             Trusted by <span className="gradient-text">Leading Companies</span>
           </>
         }
-        body="Organisations across manufacturing, retail, textiles, government and services rely on SUYOG for Tally and customized business software."
+        body="Prominent organizations across manufacturing, infrastructure, government, education, retail, and exports rely on SUYOG for reliable Tally and enterprise solutions."
       />
       <div
-        className="relative mt-14 overflow-hidden"
+        className="relative mt-14 space-y-5 overflow-hidden"
         style={{
-          maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
-        <div className="marquee-track flex w-max gap-4">
-          {row.map((name, i) => (
+        {/* Row 1 - Scrolling Forward */}
+        <div className="marquee-track flex w-max gap-4 sm:gap-6">
+          {row1.map((item, i) => (
             <div
-              key={`${name}-${i}`}
-              className="flex h-20 min-w-[16rem] items-center justify-center rounded-2xl glass border border-primary/15 px-8 text-center text-sm font-bold text-foreground shadow-xs transition-colors hover:border-primary hover:text-primary"
+              key={`row1-${item.name}-${i}`}
+              className="group relative flex h-28 sm:h-32 min-w-[16rem] sm:min-w-[19rem] items-center justify-center overflow-hidden rounded-2xl border border-slate-200/90 bg-white px-6 py-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+              title={item.name}
             >
-              {name}
+              <div className={`flex items-center justify-center w-full h-full transition-transform duration-300 group-hover:scale-105 ${item.scale ?? ""}`}>
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className="max-h-16 sm:max-h-20 max-w-[170px] sm:max-w-[200px] w-auto h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 - Scrolling Reverse */}
+        <div className="marquee-track-reverse flex w-max gap-4 sm:gap-6">
+          {row2.map((item, i) => (
+            <div
+              key={`row2-${item.name}-${i}`}
+              className="group relative flex h-28 sm:h-32 min-w-[16rem] sm:min-w-[19rem] items-center justify-center overflow-hidden rounded-2xl border border-slate-200/90 bg-white px-6 py-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+              title={item.name}
+            >
+              <div className={`flex items-center justify-center w-full h-full transition-transform duration-300 group-hover:scale-105 ${item.scale ?? ""}`}>
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className="max-h-16 sm:max-h-20 max-w-[170px] sm:max-w-[200px] w-auto h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
           ))}
         </div>

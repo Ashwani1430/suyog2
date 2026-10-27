@@ -12,9 +12,9 @@ import {
   Server,
   ShieldCheck,
   Sparkles,
-  TrendingUp,
   Zap,
 } from "lucide-react";
+import heroTeamImg from "@/assets/HeroTeamImage.jpg";
 
 export function HeroMockup3D() {
   return (
@@ -57,66 +57,31 @@ export function HeroMockup3D() {
 
         {/* Dashboard Content Grid */}
         <div className="mt-5 grid gap-4 sm:grid-cols-12">
-          {/* Main Visual: Live Business Metrics */}
-          <div className="sm:col-span-7 rounded-2xl border border-blue-100/90 bg-gradient-to-br from-blue-50/50 via-white to-slate-50/80 p-5 shadow-xs">
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
-                  Total Managed Operations
-                </span>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <h4 className="text-2xl font-extrabold tracking-tight text-slate-900">
-                    ₹ 48.6 Cr
-                  </h4>
-                  <span className="inline-flex items-center text-xs font-bold text-emerald-600">
-                    <TrendingUp className="mr-0.5 size-3.5" /> +24.8%
-                  </span>
-                </div>
-              </div>
-              <span className="grid size-10 place-items-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/25">
-                <Activity className="size-5" />
-              </span>
-            </div>
-
-            {/* Simulated Live Analytics Bar Chart */}
-            <div className="mt-6">
-              <div className="flex items-end justify-between gap-2 h-24 pt-4 border-b border-slate-100">
-                {[
-                  { month: "Apr", h: "45%", highlight: false },
-                  { month: "May", h: "60%", highlight: false },
-                  { month: "Jun", h: "52%", highlight: false },
-                  { month: "Jul", h: "78%", highlight: false },
-                  { month: "Aug", h: "70%", highlight: false },
-                  { month: "Sep", h: "88%", highlight: false },
-                  { month: "Oct", h: "98%", highlight: true },
-                ].map((bar) => (
-                  <div key={bar.month} className="flex flex-1 flex-col items-center gap-1.5 h-full justify-end">
-                    <div
-                      style={{ height: bar.h }}
-                      className={`w-full max-w-[24px] rounded-t-md transition-all duration-500 ${
-                        bar.highlight
-                          ? "bg-gradient-to-t from-blue-600 to-cyan-400 shadow-sm shadow-blue-500/30"
-                          : "bg-blue-100/80 hover:bg-blue-200"
-                      }`}
-                    />
-                    <span className="text-[10px] font-semibold text-slate-400">{bar.month}</span>
-                  </div>
-                ))}
+          {/* Main Visual: Team & Live Enterprise Operations (Clean Image View) */}
+          <div className="sm:col-span-7 flex flex-col justify-between gap-3">
+            <div className="relative overflow-hidden rounded-2xl border border-blue-200/80 bg-slate-50 shadow-md group">
+              {/* Photo Showcase - Completely Clean & Unobstructed */}
+              <div className="relative aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden">
+                <img
+                  src={heroTeamImg}
+                  alt="SUYOG Tally & Enterprise Solutions Engineering Team"
+                  className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
               </div>
             </div>
 
             {/* Quick System KPIs */}
-            <div className="mt-4 grid grid-cols-3 gap-2 pt-2 text-center">
-              <div className="rounded-xl bg-white p-2.5 border border-slate-100">
+            <div className="grid grid-cols-3 gap-2 text-center">
+              <div className="rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
+                <p className="text-[10px] font-semibold text-slate-500">Managed Ops</p>
+                <p className="text-sm font-bold text-slate-900">₹ 48.6 Cr</p>
+              </div>
+              <div className="rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
                 <p className="text-[10px] font-semibold text-slate-500">Vouchers / hr</p>
                 <p className="text-sm font-bold text-slate-900">1,420+</p>
               </div>
-              <div className="rounded-xl bg-white p-2.5 border border-slate-100">
-                <p className="text-[10px] font-semibold text-slate-500">Branches</p>
-                <p className="text-sm font-bold text-slate-900">Multi-Site</p>
-              </div>
-              <div className="rounded-xl bg-white p-2.5 border border-slate-100">
-                <p className="text-[10px] font-semibold text-slate-500">Uptime</p>
+              <div className="rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
+                <p className="text-[10px] font-semibold text-slate-500">Live Uptime</p>
                 <p className="text-sm font-bold text-emerald-600">99.98%</p>
               </div>
             </div>

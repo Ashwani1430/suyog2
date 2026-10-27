@@ -1,4 +1,4 @@
-import { CONTACT, NAV_LINKS } from "@/data/suyog";
+import { CONTACT, FOOTER_LINKS } from "@/data/suyog";
 
 const SUPPORT_LINKS = [
   "Legal Notice",
@@ -43,7 +43,7 @@ export function SiteFooter() {
         <nav aria-label="Footer">
           <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Explore</h2>
           <ul className="mt-5 space-y-3">
-            {NAV_LINKS.filter((l) => l.label !== "Home").map((link) => (
+            {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
