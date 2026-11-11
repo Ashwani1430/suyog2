@@ -28,6 +28,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { SUYOG_CUSTOM_ICONS, CustomTdlApiIcon } from "./SuyogProductIcons";
 
 export function TallyProducts() {
   const [selectedProduct, setSelectedProduct] = useState<TallyProductItem | null>(null);
@@ -38,7 +39,7 @@ export function TallyProducts() {
         eyebrow="Tally Products"
         title={
           <>
-            Tally Solutions Built for <span className="gradient-text">Modern Business</span>
+            India&apos;s Choice for <span className="gradient-text">Business Brilliance</span>
           </>
         }
         body="Licensing, implementation, upgrades and support across the official Tally product line — certified and customized by SUYOG for your enterprise."
@@ -272,50 +273,57 @@ export function SuyogProducts() {
       />
 
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
-        {SUYOG_PRODUCTS.map((product, i) => (
-          <Reveal key={product.name} delay={i * 0.05} className="w-full h-full flex justify-center">
-            <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
-              <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl glass p-6 sm:p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
-                      <Icon name={product.icon} className="size-6" />
-                    </span>
-                    <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-bold text-blue-700 border border-blue-100">
-                      TallyPrime Integrated
-                    </span>
+        {SUYOG_PRODUCTS.map((product, i) => {
+          const CustomIcon = SUYOG_CUSTOM_ICONS[product.name];
+          return (
+            <Reveal key={product.name} delay={i * 0.05} className="w-full h-full flex justify-center">
+              <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+                <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl glass p-6 sm:p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="grid size-16 sm:size-18 place-items-center rounded-2xl border border-blue-100 bg-white text-blue-600 shadow-[0_4px_16px_rgba(37,99,235,0.08)] transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:border-blue-300 group-hover:shadow-md group-hover:shadow-blue-500/15">
+                        {CustomIcon ? (
+                          <CustomIcon className="size-11 sm:size-12 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
+                        ) : (
+                          <Icon name={product.icon} className="size-10 sm:size-11 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
+                        )}
+                      </span>
+                      <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-bold text-blue-700 border border-blue-100">
+                        TallyPrime Integrated
+                      </span>
+                    </div>
+
+                    <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                      {product.name}
+                    </h3>
+                    <p className="mt-1 min-h-[2.5rem] text-xs font-semibold text-primary line-clamp-2 flex items-center">
+                      {product.tagline}
+                    </p>
+
+                    <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[140px]">
+                      {product.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-xs font-medium text-foreground/80">
+                          <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
-                    {product.name}
-                  </h3>
-                  <p className="mt-1 min-h-[2.5rem] text-xs font-semibold text-primary line-clamp-2 flex items-center">
-                    {product.tagline}
-                  </p>
-
-                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[140px]">
-                    {product.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-xs font-medium text-foreground/80">
-                        <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-slate-100">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-primary transition-colors hover:text-primary/80"
-                  >
-                    Explore Solution
-                    <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </a>
-                </div>
-              </article>
-            </Tilt3DCard>
-          </Reveal>
-        ))}
+                  <div className="pt-6 mt-6 border-t border-slate-100">
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-primary transition-colors hover:text-primary/80"
+                    >
+                      Explore Solution
+                      <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                    </a>
+                  </div>
+                </article>
+              </Tilt3DCard>
+            </Reveal>
+          );
+        })}
 
         {/* 9th Symmetrical Card: Custom TDL Module Inquiry */}
         <Reveal delay={0.4} className="w-full h-full flex justify-center">
@@ -323,8 +331,8 @@ export function SuyogProducts() {
             <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50/60 via-white to-blue-50/40 p-6 sm:p-7 shadow-[0_12px_36px_rgba(30,96,255,0.07)] transition-all duration-300 hover:shadow-[0_22px_45px_rgba(30,96,255,0.16)]">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25">
-                    <Wrench className="size-6" />
+                  <span className="grid size-16 sm:size-18 place-items-center rounded-2xl border border-blue-100 bg-white text-blue-600 shadow-[0_4px_16px_rgba(37,99,235,0.08)] transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:border-blue-300 group-hover:shadow-md group-hover:shadow-blue-500/15">
+                    <CustomTdlApiIcon className="size-11 sm:size-12 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
                   </span>
                   <span className="rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold text-emerald-700 border border-emerald-100">
                     Bespoke Engineering

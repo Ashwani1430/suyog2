@@ -6,6 +6,7 @@ import { CLIENTS, FLOW_STEPS, PRIMARY_TEL, TRUST_ITEMS, WHY_SUYOG } from "@/data
 import { CLIENT_LOGOS } from "@/data/clientsData";
 import { Counter, Icon, Reveal, Section, SectionHeading } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
+import { WHY_SUYOG_CUSTOM_ICONS } from "./WhySuyogIcons";
 
 export function TrustStrip() {
   return (
@@ -61,58 +62,62 @@ const TIMELINE = [
 export function About() {
   return (
     <Section id="about">
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-14">
-        {/* Left Column: Full-Height Heritage Visual */}
-        <Reveal className="h-full flex">
+      {/* Top Part: Full-Width Welcome to SUYOG Section */}
+      <Reveal className="w-full">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
+            About Us
+          </p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight leading-[1.15] sm:text-4xl lg:text-5xl text-foreground">
+            Welcome to SUYOG —{" "}
+            <span className="gradient-text">
+              Empowering Businesses Through Technology Since 1990
+            </span>
+          </h2>
+          <p className="mt-5 text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground max-w-5xl">
+            At SUYOG, we believe technology should make business simpler, smarter, and more efficient. With decades of industry experience, we have established ourselves as a trusted IT solutions provider in India, helping businesses streamline operations, improve productivity, and embrace digital transformation.
+          </p>
+
+          {/* Full-Width Partner Specialization Card */}
+          <div className="mt-6 rounded-2xl border border-primary/20 bg-gradient-to-br from-blue-50/60 via-surface/90 to-cyan-50/40 p-5 sm:p-6 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <span className="grid size-8 place-items-center rounded-xl bg-primary/10 text-primary shrink-0 mt-0.5">
+                <Sparkles className="size-4.5 text-primary" />
+              </span>
+              <p className="text-xs sm:text-sm md:text-base text-foreground/90 leading-relaxed font-medium">
+                As a <strong className="text-foreground font-bold">Tally software solutions and development partner</strong>, we specialize in delivering comprehensive business solutions, including Tally software, customization, cloud solutions, and dedicated technical support. Our focus is on understanding each client's unique needs and providing reliable, practical solutions that drive long-term business growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Bottom Part: Side Image (Heritage Roadmap) & Our Story Content Side-by-Side */}
+      <div className="mt-12 lg:mt-14 grid gap-10 lg:grid-cols-12 lg:items-center">
+        {/* Left: Heritage Visual Roadmap (Aligned directly with Our Story) */}
+        <Reveal className="lg:col-span-5 h-full flex">
           <Tilt3DCard maxTilt={5} className="w-full h-full flex flex-col">
             <AboutTimelineVisual />
           </Tilt3DCard>
         </Reveal>
 
-        {/* Right Column: Narrative & Mission */}
-        <div className="flex flex-col justify-between h-full">
+        {/* Right: Our Story Content & Mission */}
+        <Reveal delay={0.1} className="lg:col-span-7 flex flex-col justify-between h-full">
           <div>
-            <SectionHeading
-              align="left"
-              eyebrow="About Us"
-              title={
-                <>
-                  Welcome to SUYOG —{" "}
-                  <span className="gradient-text">
-                    Empowering Businesses Through Technology Since 1990
-                  </span>
-                </>
-              }
-              body="At SUYOG, we believe technology should make business simpler, smarter, and more efficient. With decades of industry experience, we have established ourselves as a trusted IT solutions provider in India, helping businesses streamline operations, improve productivity, and embrace digital transformation."
-            />
-
-            {/* Partner Specialization Card */}
-            <div className="mt-6 rounded-2xl border border-primary/20 bg-gradient-to-br from-blue-50/60 via-surface/90 to-cyan-50/40 p-5 shadow-xs">
-              <div className="flex items-start gap-3">
-                <span className="grid size-7 place-items-center rounded-xl bg-primary/10 text-primary shrink-0 mt-0.5">
-                  <Sparkles className="size-4" />
-                </span>
-                <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
-                  As a <strong className="text-foreground font-bold">Tally software solutions and development partner</strong>, we specialize in delivering comprehensive business solutions, including Tally software, customization, cloud solutions, and dedicated technical support. Our focus is on understanding each client's unique needs and providing reliable, practical solutions that drive long-term business growth.
-                </p>
-              </div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              <h3 className="text-xs sm:text-sm font-bold tracking-tight text-foreground uppercase">
+                Our Story • Three Decades of Trust, Innovation &amp; Excellence
+              </h3>
             </div>
-
-            {/* Our Story Block */}
-            <div className="mt-6 border-t border-slate-100 pt-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                <h3 className="text-sm font-bold tracking-tight text-foreground uppercase">
-                  Our Story • Three Decades of Trust, Innovation &amp; Excellence
-                </h3>
-              </div>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <div className="space-y-3.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p>
                 Since <strong className="text-foreground font-semibold">1990</strong>, SUYOG has evolved alongside the ever-changing world of technology, consistently adapting to the needs of modern businesses. What began as a commitment to delivering dependable IT solutions has grown into a lasting partnership with businesses across industries.
               </p>
-              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p>
                 Over the years, we have combined technical expertise, continuous innovation, and a customer-first approach to help organizations simplify complex processes and work more efficiently. We understand that every business has different goals, which is why we focus on providing solutions that are practical, scalable, and tailored to real-world requirements.
               </p>
-              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p>
                 Today, SUYOG continues to build on its legacy of trust by helping businesses make the most of technology through reliable software solutions, expert guidance, and responsive support.
               </p>
             </div>
@@ -133,7 +138,7 @@ export function About() {
             </div>
           </div>
 
-          <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+          <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <span className="text-xs font-semibold text-muted-foreground">
               Have unique requirements for your enterprise?
             </span>
@@ -145,7 +150,7 @@ export function About() {
               <ArrowRight className="size-3.5" />
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );
@@ -164,25 +169,32 @@ export function WhySuyog() {
         body="Practical engineering, deep accounting insight, and relentless support across North India's thriving enterprises."
       />
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
-        {WHY_SUYOG.map((item, i) => (
-          <Reveal key={item.title} delay={i * 0.06} className="w-full h-full flex justify-center">
-            <Tilt3DCard maxTilt={8} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
-              <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group flex flex-col justify-between h-full rounded-3xl glass p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
-                <div>
-                  <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
-                    <Icon name={item.icon} className="size-6" />
-                  </span>
-                  <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2.5 min-h-[3.75rem] text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                    {item.body}
-                  </p>
-                </div>
-              </article>
-            </Tilt3DCard>
-          </Reveal>
-        ))}
+        {WHY_SUYOG.map((item, i) => {
+          const CustomIcon = WHY_SUYOG_CUSTOM_ICONS[item.title];
+          return (
+            <Reveal key={item.title} delay={i * 0.06} className="w-full h-full flex justify-center">
+              <Tilt3DCard maxTilt={8} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
+                <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group flex flex-col justify-between h-full rounded-3xl glass p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
+                  <div>
+                    <span className="grid size-16 sm:size-18 place-items-center rounded-2xl border border-blue-100 bg-white text-blue-600 shadow-[0_4px_16px_rgba(37,99,235,0.08)] transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:border-blue-300 group-hover:shadow-md group-hover:shadow-blue-500/15">
+                      {CustomIcon ? (
+                        <CustomIcon className="size-11 sm:size-12 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
+                      ) : (
+                        <Icon name={item.icon} className="size-10 sm:size-11 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
+                      )}
+                    </span>
+                    <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2.5 min-h-[3.75rem] text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                      {item.body}
+                    </p>
+                  </div>
+                </article>
+              </Tilt3DCard>
+            </Reveal>
+          );
+        })}
       </div>
     </Section>
   );

@@ -33,30 +33,10 @@ export const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Tally Products", href: "#tally-products" },
-  {
-    label: "Suyog Products",
-    href: "#suyog-products",
-    children: [
-      {
-        label: "ERP Integration",
-        href: "#erp-integration",
-        description: "Master & Transaction API integration with TallyPrime",
-        badge: "API Sync",
-      },
-      {
-        label: "Partner Products",
-        href: "#partners",
-        description: "Biz Analyst mobility, Spine HRMS & Shivam Medisoft",
-        badge: "Ecosystem",
-      },
-      {
-        label: "Custom Solutions",
-        href: "#customized",
-        description: "Tailored business modules built around your workflow",
-        badge: "Tailored",
-      },
-    ],
-  },
+  { label: "Suyog Products", href: "#suyog-products" },
+  { label: "ERP Integration", href: "#erp-integration" },
+  { label: "Partner Products", href: "#partners" },
+  { label: "Custom Solutions", href: "#customized" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -313,7 +293,7 @@ export const SUYOG_PRODUCTS: {
   featured?: boolean;
 }[] = [
   {
-    name: "EduWeb_eLOGiPay",
+    name: "eLOGiPay",
     tagline: "Universities, colleges & private schools",
     icon: "GraduationCap",
     features: [
