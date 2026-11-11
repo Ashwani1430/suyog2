@@ -46,9 +46,9 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.75rem]"
           >
-            Transforming Enterprises with{" "}
+            Bringing Efficient Tools and{" "}
             <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Smarter Tally &amp; IT Solutions
+              Solution for Business Analytics
             </span>
           </motion.h1>
 

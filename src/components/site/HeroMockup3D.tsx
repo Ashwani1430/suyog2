@@ -15,6 +15,8 @@ import {
   Zap,
 } from "lucide-react";
 import heroTeamImg from "@/assets/HeroTeamImage.jpg";
+import tallyCertifiedPartnerImg from "@/assets/TallyCertifedPartner.png";
+import tallyGvlaPartnerImg from "@/assets/tally-GVLA-partner.jpg";
 
 export function HeroMockup3D() {
   return (
@@ -57,32 +59,78 @@ export function HeroMockup3D() {
 
         {/* Dashboard Content Grid */}
         <div className="mt-5 grid gap-4 sm:grid-cols-12">
-          {/* Main Visual: Team & Live Enterprise Operations (Clean Image View) */}
-          <div className="sm:col-span-7 flex flex-col justify-between gap-3">
-            <div className="relative overflow-hidden rounded-2xl border border-blue-200/80 bg-slate-50 shadow-md group">
-              {/* Photo Showcase - Completely Clean & Unobstructed */}
-              <div className="relative aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden">
+          {/* Main Visual: Highlighted Official Tally Accreditation (Master Focus) + Supporting Team Visual */}
+          <div className="sm:col-span-7 flex flex-col justify-start gap-3 sm:gap-3.5">
+            {/* Master Tally Partner Accreditation Showcase (Primary Visual Focal Point) */}
+            <div className="rounded-2xl border border-blue-200/90 bg-gradient-to-b from-white via-white to-blue-50/40 p-3 sm:p-3.5 shadow-[0_10px_28px_rgba(30,96,255,0.12)] transition-all duration-300">
+              {/* Eyebrow Header Bar */}
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                <div className="flex items-center gap-1.5">
+                  <span className="flex size-5 items-center justify-center rounded-md bg-blue-600 text-white shadow-xs">
+                    <ShieldCheck className="size-3.5" />
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-slate-900">
+                    Official Tally Accreditations
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[9px] font-bold text-blue-700 border border-blue-200/80">
+                  <span className="size-1.5 rounded-full bg-blue-600 animate-pulse" />
+                  Highest 5-Star Tier
+                </span>
+              </div>
+
+              {/* High-Impact Logos Grid */}
+              <div className="mt-2.5 grid grid-cols-2 gap-2.5 items-stretch">
+                {/* Logo 1: Tally Certified Partner 5-Star */}
+                <div className="group/logo flex flex-col items-center justify-between rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-xs transition-all duration-300 hover:border-blue-400 hover:shadow-md">
+                  <div className="flex h-14 sm:h-16 w-full items-center justify-center">
+                    <img
+                      src={tallyCertifiedPartnerImg}
+                      alt="Tally Certified Partner - 5 Star Sales & Implementation"
+                      className="max-h-12 sm:max-h-13 w-auto object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                      loading="eager"
+                    />
+                  </div>
+                  <span className="mt-1 text-[9.5px] font-bold text-slate-700 text-center tracking-tight">
+                    5-Star Sales &amp; Implementation
+                  </span>
+                </div>
+
+                {/* Logo 2: Tally GVLA Partner */}
+                <div className="group/logo flex flex-col items-center justify-between rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-xs transition-all duration-300 hover:border-blue-400 hover:shadow-md">
+                  <div className="flex h-14 sm:h-16 w-full items-center justify-center">
+                    <img
+                      src={tallyGvlaPartnerImg}
+                      alt="Tally GVLA Partner"
+                      className="max-h-12 sm:max-h-13 w-auto object-contain transition-transform duration-300 group-hover/logo:scale-105"
+                      loading="eager"
+                    />
+                  </div>
+                  <span className="mt-1 text-[9.5px] font-bold text-slate-700 text-center tracking-tight">
+                    Certified GVLA Partner
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Supporting Team Operations Visual */}
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm group">
+              <div className="relative aspect-[16/8.5] w-full overflow-hidden">
                 <img
                   src={heroTeamImg}
                   alt="SUYOG Tally & Enterprise Solutions Engineering Team"
                   className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-              </div>
-            </div>
+                {/* Ambient Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
 
-            {/* Quick System KPIs */}
-            <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
-                <p className="text-[10px] font-semibold text-slate-500">Managed Ops</p>
-                <p className="text-sm font-bold text-slate-900">₹ 48.6 Cr</p>
-              </div>
-              <div className="rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
-                <p className="text-[10px] font-semibold text-slate-500">Vouchers / hr</p>
-                <p className="text-sm font-bold text-slate-900">1,420+</p>
-              </div>
-              <div className="rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs">
-                <p className="text-[10px] font-semibold text-slate-500">Live Uptime</p>
-                <p className="text-sm font-bold text-emerald-600">99.98%</p>
+                {/* Live Operations Status Tag */}
+                <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900/75 backdrop-blur-md px-2.5 py-1 text-[9px] font-semibold text-white/95 border border-white/15 shadow-xs">
+                    <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    SUYOG Enterprise Implementation Team
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -174,7 +222,7 @@ export function HeroMockup3D() {
 
       {/* Floating 3D Holographic Layer 2: Bottom Left Badge */}
       <div
-        className="float-slow-reverse absolute -bottom-5 left-2 sm:-left-8 flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-blue-200/90 bg-white/95 px-3 py-2 sm:px-4 sm:py-3 shadow-[0_20px_40px_rgba(29,78,216,0.2)] backdrop-blur-xl"
+        className="float-slow-reverse absolute -bottom-7 sm:-bottom-8 left-0 sm:-left-10 flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-blue-200/90 bg-white/95 px-3 py-2 sm:px-4 sm:py-3 shadow-[0_20px_40px_rgba(29,78,216,0.2)] backdrop-blur-xl"
         style={{
           transform: "translateZ(85px)",
           transformStyle: "preserve-3d",

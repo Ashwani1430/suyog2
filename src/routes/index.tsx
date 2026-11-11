@@ -89,7 +89,7 @@ function Index() {
         <About />
         <TallyProducts />
         <SuyogProducts />
-        <Industries />
+        {/* <Industries /> */}
         <ErpIntegration />
         <TrustedPartners />
         <Customized />

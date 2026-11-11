@@ -1,13 +1,37 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Check, Sparkles, Wrench } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  ExternalLink,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+  Wrench,
+  Zap,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { INDUSTRIES, SUYOG_PRODUCTS, TALLY_PRODUCTS } from "@/data/suyog";
+import {
+  INDUSTRIES,
+  SUYOG_PRODUCTS,
+  TALLY_PRODUCTS,
+  type TallyProductItem,
+} from "@/data/suyog";
 import { Icon, Reveal, Section, SectionHeading } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export function TallyProducts() {
+  const [selectedProduct, setSelectedProduct] = useState<TallyProductItem | null>(null);
+
   return (
     <Section id="tally-products">
       <SectionHeading
@@ -17,25 +41,44 @@ export function TallyProducts() {
             Tally Solutions Built for <span className="gradient-text">Modern Business</span>
           </>
         }
-        body="Licensing, implementation, upgrades and support across the Tally product line — set up the way your organisation works."
+        body="Licensing, implementation, upgrades and support across the official Tally product line — certified and customized by SUYOG for your enterprise."
       />
 
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
         {TALLY_PRODUCTS.map((product, i) => (
-          <Reveal key={product.name} delay={i * 0.07} className="w-full h-full flex justify-center">
+          <Reveal key={product.id} delay={i * 0.07} className="w-full h-full flex justify-center">
             <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
               <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group flex h-full flex-col justify-between rounded-3xl glass p-6 sm:p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
                 <div>
-                  <span className="grid size-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_4px_16px_rgba(30,96,255,0.12)] transition-transform duration-500 group-hover:scale-110 group-hover:bg-[image:var(--gradient-accent)] group-hover:text-white">
-                    <Icon name={product.icon} className="size-6" />
-                  </span>
-                  <h3 className="mt-5 min-h-[2.75rem] text-lg font-bold tracking-tight text-foreground flex items-center">
+                  {/* Official Logo Banner & Badge */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="h-14 w-auto min-w-[120px] max-w-[170px] flex items-center justify-center px-3 py-1.5 rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+                      <img
+                        src={product.logo}
+                        alt={product.name}
+                        className="h-9 w-auto max-w-full object-contain"
+                      />
+                    </div>
+                    <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-bold text-blue-700 border border-blue-100/80 shrink-0">
+                      {product.badge}
+                    </span>
+                  </div>
+
+                  {/* Title & Tagline */}
+                  <h3 className="mt-5 min-h-[2.5rem] text-lg font-bold tracking-tight text-foreground flex items-center">
                     {product.name}
                   </h3>
-                  <p className="mt-2 min-h-[4.25rem] text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-[11px] font-semibold text-primary line-clamp-1">
+                    {product.tagline}
+                  </p>
+
+                  {/* Description */}
+                  <p className="mt-2.5 min-h-[4rem] text-xs leading-relaxed text-muted-foreground line-clamp-3">
                     {product.description}
                   </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[135px]">
+
+                  {/* Key Highlights */}
+                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[145px]">
                     {product.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-xs font-medium text-foreground/85">
                         <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
@@ -44,20 +87,172 @@ export function TallyProducts() {
                     ))}
                   </ul>
                 </div>
-                <div className="pt-6 mt-6 border-t border-slate-100">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-primary transition-colors hover:text-primary/80"
+
+                {/* Explore Solution Button */}
+                <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProduct(product)}
+                    className="inline-flex items-center gap-2 text-xs font-bold text-primary transition-colors hover:text-primary/80 group/btn cursor-pointer"
                   >
-                    Explore Solution
-                    <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </a>
+                    <span>Explore Solution</span>
+                    <ArrowRight className="size-3.5 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
+                  </button>
+                  <span className="text-[10px] font-semibold text-slate-400">
+                    Official
+                  </span>
                 </div>
               </article>
             </Tilt3DCard>
           </Reveal>
         ))}
       </div>
+
+      {/* Dedicated Interactive Detail Modal */}
+      <Dialog
+        open={Boolean(selectedProduct)}
+        onOpenChange={(open) => !open && setSelectedProduct(null)}
+      >
+        {selectedProduct && (
+          <DialogContent className="max-w-2xl sm:max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 rounded-3xl bg-white shadow-2xl border-slate-100">
+            <DialogHeader className="text-left space-y-3 pb-4 border-b border-slate-100">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="h-12 px-3 py-1 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-center">
+                  <img
+                    src={selectedProduct.logo}
+                    alt={selectedProduct.name}
+                    className="h-8 w-auto object-contain"
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-100">
+                    {selectedProduct.badge}
+                  </span>
+                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 border border-emerald-100 flex items-center gap-1">
+                    <ShieldCheck className="size-3.5 text-emerald-600" />
+                    Authorized 5-Star Partner
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <DialogTitle className="text-2xl font-extrabold tracking-tight text-foreground">
+                  {selectedProduct.name}
+                </DialogTitle>
+                <DialogDescription className="text-xs sm:text-sm font-semibold text-primary mt-1">
+                  {selectedProduct.tagline}
+                </DialogDescription>
+              </div>
+            </DialogHeader>
+
+            <div className="space-y-6 pt-3 text-left">
+              {/* Product Overview */}
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                  Product Overview
+                </h4>
+                <div className="rounded-2xl bg-slate-50/80 p-4 border border-slate-100 text-xs sm:text-sm text-foreground/85 leading-relaxed">
+                  {selectedProduct.overview}
+                </div>
+              </div>
+
+              {/* Core Capabilities */}
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
+                  <Sparkles className="size-3.5 text-primary" />
+                  Key Enterprise Capabilities
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {selectedProduct.keyCapabilities.map((cap) => (
+                    <div
+                      key={cap.title}
+                      className="rounded-2xl border border-slate-100 bg-white p-3.5 shadow-sm hover:border-primary/30 transition-colors"
+                    >
+                      <div className="flex items-start gap-2.5">
+                        <CheckCircle2 className="size-4 shrink-0 text-primary mt-0.5" />
+                        <div>
+                          <h5 className="text-xs sm:text-sm font-bold text-foreground">
+                            {cap.title}
+                          </h5>
+                          <p className="mt-1 text-[11px] sm:text-xs text-muted-foreground leading-relaxed">
+                            {cap.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Editions / Deployment Models */}
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
+                  <Layers className="size-3.5 text-primary" />
+                  Available Editions & Deployment
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {selectedProduct.editionsOrDeployment.map((ed) => (
+                    <div
+                      key={ed.name}
+                      className="rounded-2xl bg-blue-50/40 border border-blue-100/70 p-3.5"
+                    >
+                      <h5 className="text-xs font-bold text-blue-900 flex items-center gap-1.5">
+                        <Zap className="size-3.5 text-blue-600" />
+                        {ed.name}
+                      </h5>
+                      <p className="mt-1 text-[11px] text-blue-800/80 leading-relaxed">
+                        {ed.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Why SUYOG Value Add */}
+              <div className="rounded-2xl bg-gradient-to-br from-blue-900 to-indigo-950 p-5 text-white shadow-lg">
+                <div className="flex items-center gap-2 mb-3">
+                  <ShieldCheck className="size-5 text-blue-300" />
+                  <h4 className="text-sm font-bold text-white tracking-tight">
+                    Why Implement with SUYOG?
+                  </h4>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {selectedProduct.suyogAdvantages.map((adv) => (
+                    <div key={adv} className="flex items-start gap-2 text-xs text-blue-100">
+                      <Check className="size-3.5 shrink-0 text-blue-400 mt-0.5" />
+                      <span>{adv}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span className="text-xs text-muted-foreground text-center sm:text-left">
+                Need customized deployment, migration, or multi-user licensing?
+              </span>
+              <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+                <button
+                  type="button"
+                  onClick={() => setSelectedProduct(null)}
+                  className="px-4 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+                <a
+                  href="#contact"
+                  onClick={() => setSelectedProduct(null)}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-white shadow-md hover:bg-primary/90 transition-all hover:scale-[1.02] cursor-pointer"
+                >
+                  <span>Request Quote & Consultation</span>
+                  <ArrowRight className="size-3.5" />
+                </a>
+              </div>
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
     </Section>
   );
 }

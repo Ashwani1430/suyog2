@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { CASE_STUDIES } from "@/data/suyog";
 import { Reveal, Section, SectionHeading } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
@@ -64,25 +65,51 @@ export function Customized() {
         style={{ scrollbarWidth: "none" }}
       >
         {CASE_STUDIES.map((study, i) => (
-          <Reveal key={study.client} delay={i * 0.05} className="snap-start shrink-0 h-[340px] sm:h-[360px] flex">
+          <Reveal key={study.client} delay={i * 0.05} className="snap-start shrink-0 h-[420px] sm:h-[440px] flex">
             <Tilt3DCard maxTilt={6} className="h-full flex flex-col" containerClassName="h-full flex">
               <button
                 type="button"
                 onClick={() => setOpenIndex(i)}
-                className="gradient-ring group flex h-[340px] sm:h-[360px] w-[18rem] sm:w-[21rem] flex-col justify-between rounded-3xl glass p-7 sm:p-8 text-left shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.16)]"
+                className="gradient-ring group flex h-[420px] sm:h-[440px] w-[19rem] sm:w-[22rem] flex-col justify-between rounded-3xl glass p-6 sm:p-7 text-left shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.16)] cursor-pointer"
               >
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary h-5 flex items-center">
-                    {study.industry}
-                  </span>
-                  <h3 className="mt-3.5 min-h-[3.25rem] max-h-[3.25rem] text-lg sm:text-xl font-bold leading-snug tracking-tight text-foreground line-clamp-2 flex items-start">
+                  {/* Category & Badge Header */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-primary truncate">
+                      {study.industry}
+                    </span>
+                    {study.badge && (
+                      <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[9.5px] font-bold text-blue-700 border border-blue-100/80 shrink-0">
+                        {study.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* High-Visibility Full-Width Logo Stage */}
+                  <div className="h-22 sm:h-24 w-full rounded-2xl bg-white border border-slate-200/90 p-3 sm:p-4 flex items-center justify-center shadow-xs transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-sm mb-4">
+                    <img
+                      src={study.logo}
+                      alt={study.client}
+                      className={cn(
+                        "max-h-16 sm:max-h-18 max-w-[85%] w-auto object-contain transition-transform duration-300 group-hover:scale-105",
+                        study.scale
+                      )}
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Client Name - Fully Visible Without Clipping */}
+                  <h3 className="min-h-[3.25rem] sm:min-h-[3.5rem] text-base sm:text-lg font-bold leading-snug tracking-tight text-foreground flex items-start">
                     {study.client}
                   </h3>
-                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-4 overflow-hidden">
+
+                  {/* Context Description */}
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3 overflow-hidden">
                     {study.context}
                   </p>
                 </div>
-                <span className="mt-auto pt-6 border-t border-slate-100/90 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary">
+
+                <span className="mt-auto pt-4 border-t border-slate-100/90 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary">
                   View case study
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
@@ -116,14 +143,33 @@ export function Customized() {
                 type="button"
                 aria-label="Close case study"
                 onClick={() => setOpenIndex(null)}
-                className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-primary/20 bg-surface text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+                className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-primary/20 bg-surface text-muted-foreground transition-colors hover:border-primary hover:text-foreground cursor-pointer"
               >
                 <X className="size-5" />
               </button>
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pr-12 pb-3 border-b border-slate-100">
+                <div className="h-16 sm:h-20 px-4 py-2 bg-white rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-center">
+                  <img
+                    src={active.logo}
+                    alt={active.client}
+                    className={cn(
+                      "max-h-14 sm:max-h-16 w-auto max-w-[200px] object-contain",
+                      active.scale
+                    )}
+                  />
+                </div>
+                {active.badge && (
+                  <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-100">
+                    {active.badge}
+                  </span>
+                )}
+              </div>
+
+              <span className="mt-3 block text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 {active.industry}
               </span>
-              <h3 className="mt-3 pr-12 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              <h3 className="mt-1 pr-12 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 {active.client}
               </h3>
 
