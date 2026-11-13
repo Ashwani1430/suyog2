@@ -8,6 +8,7 @@ import {
   Layers,
   ShieldCheck,
   Sparkles,
+  Tag,
   Wrench,
   Zap,
 } from "lucide-react";
@@ -73,13 +74,28 @@ export function TallyProducts() {
                     {product.tagline}
                   </p>
 
+                  {/* Official Starting Price Badge */}
+                  <div className="mt-3 rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50/80 via-white to-blue-50/80 p-2.5 flex items-center justify-between shadow-2xs">
+                    <div>
+                      <span className="text-[9.5px] uppercase font-bold tracking-wider text-slate-400 block">
+                        Official Price
+                      </span>
+                      <span className="text-xs sm:text-[13px] font-black text-blue-700">
+                        {product.startingPrice}
+                      </span>
+                    </div>
+                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider bg-white border border-slate-200/80 rounded-md px-1.5 py-0.5 shadow-2xs">
+                      +18% GST
+                    </span>
+                  </div>
+
                   {/* Description */}
-                  <p className="mt-2.5 min-h-[4rem] text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                  <p className="mt-2.5 min-h-[3.75rem] text-xs leading-relaxed text-muted-foreground line-clamp-3">
                     {product.description}
                   </p>
 
                   {/* Key Highlights */}
-                  <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 min-h-[145px]">
+                  <ul className="mt-4 space-y-2 border-t border-slate-100 pt-4 min-h-[145px]">
                     {product.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-xs font-medium text-foreground/85">
                         <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
@@ -89,14 +105,14 @@ export function TallyProducts() {
                   </ul>
                 </div>
 
-                {/* Explore Solution Button */}
-                <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between">
+                {/* Explore Solution & Pricing Button */}
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
                   <button
                     type="button"
                     onClick={() => setSelectedProduct(product)}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-primary transition-colors hover:text-primary/80 group/btn cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-colors hover:text-primary/80 group/btn cursor-pointer"
                   >
-                    <span>Explore Solution</span>
+                    <span>Explore Solution &amp; Pricing</span>
                     <ArrowRight className="size-3.5 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
                   </button>
                   <span className="text-[10px] font-semibold text-slate-400">
@@ -115,7 +131,7 @@ export function TallyProducts() {
         onOpenChange={(open) => !open && setSelectedProduct(null)}
       >
         {selectedProduct && (
-          <DialogContent className="max-w-2xl sm:max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 rounded-3xl bg-white shadow-2xl border-slate-100">
+          <DialogContent className="max-w-2xl sm:max-w-4xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 rounded-3xl bg-white shadow-2xl border-slate-100">
             <DialogHeader className="text-left space-y-3 pb-4 border-b border-slate-100">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="h-12 px-3 py-1 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-center">
@@ -156,6 +172,136 @@ export function TallyProducts() {
                   {selectedProduct.overview}
                 </div>
               </div>
+
+              {/* Official Plans & Pricing Matrix */}
+              {selectedProduct.pricingPlans && selectedProduct.pricingPlans.length > 0 && (
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-blue-700 flex items-center gap-1.5">
+                      <Tag className="size-3.5 text-blue-600" />
+                      Official Plans &amp; Pricing (Tally Solutions)
+                    </h4>
+                    <span className="text-[10px] font-semibold text-slate-400">
+                      Prices in INR • Applicable 18% GST Extra
+                    </span>
+                  </div>
+
+                  <div
+                    className={`grid grid-cols-1 ${
+                      selectedProduct.pricingPlans.length === 2
+                        ? "sm:grid-cols-2"
+                        : selectedProduct.pricingPlans.length >= 3
+                        ? "sm:grid-cols-3"
+                        : ""
+                    } gap-3.5 items-stretch`}
+                  >
+                    {selectedProduct.pricingPlans.map((plan) => (
+                      <div
+                        key={plan.name}
+                        className={`relative rounded-2xl p-4 flex flex-col justify-between border transition-all ${
+                          plan.popular
+                            ? "border-blue-300 bg-gradient-to-b from-blue-50/70 via-white to-blue-50/40 shadow-md ring-1 ring-blue-400/40"
+                            : "border-slate-200/90 bg-white shadow-xs hover:border-blue-200"
+                        }`}
+                      >
+                        {plan.popular && (
+                          <span className="absolute -top-2.5 right-4 rounded-full bg-blue-600 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                            Most Popular
+                          </span>
+                        )}
+
+                        <div>
+                          <div className="flex items-center justify-between gap-1">
+                            <h5 className="text-sm font-extrabold text-slate-900">
+                              {plan.name}
+                            </h5>
+                          </div>
+                          {plan.tag && (
+                            <span className="inline-block mt-1 text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100/70">
+                              {plan.tag}
+                            </span>
+                          )}
+
+                          {/* Perpetual / Base Price */}
+                          {plan.perpetualPrice && (
+                            <div className="mt-3.5 border-b border-slate-100 pb-3">
+                              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                                Base / Lifetime Price
+                              </span>
+                              <div className="flex items-baseline gap-1.5 mt-0.5">
+                                <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                                  {plan.perpetualPrice}
+                                </span>
+                              </div>
+                              {plan.perpetualNote && (
+                                <p className="text-[10px] text-slate-500 mt-0.5 leading-snug">
+                                  {plan.perpetualNote}
+                                </p>
+                              )}
+                            </div>
+                          )}
+
+                          {/* Rental / Term Options */}
+                          {plan.rentalPrices && plan.rentalPrices.length > 0 && (
+                            <div className="mt-3 pt-1">
+                              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+                                Subscription &amp; Rental Options
+                              </span>
+                              <div className="space-y-1.5">
+                                {plan.rentalPrices.map((r) => (
+                                  <div
+                                    key={r.duration}
+                                    className="flex items-center justify-between rounded-lg bg-slate-50 px-2.5 py-1 text-[11px] border border-slate-100"
+                                  >
+                                    <span className="font-semibold text-slate-600">
+                                      {r.duration}
+                                    </span>
+                                    <div className="text-right">
+                                      <span className="font-bold text-slate-900">
+                                        {r.price}
+                                      </span>
+                                      {r.note && (
+                                        <span className="block text-[9px] text-emerald-600 font-semibold">
+                                          {r.note}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Plan Features Checklist */}
+                          <ul className="mt-3.5 space-y-1.5 border-t border-slate-100 pt-3">
+                            {plan.features.map((feat) => (
+                              <li key={feat} className="flex items-start gap-2 text-[11px] text-slate-600">
+                                <Check className="size-3 text-blue-600 shrink-0 mt-0.5" />
+                                <span>{feat}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-slate-100">
+                          <a
+                            href="#contact"
+                            onClick={() => setSelectedProduct(null)}
+                            className={`w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2 px-3 text-xs font-bold transition-all ${
+                              plan.popular
+                                ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/25"
+                                : "bg-slate-100 hover:bg-blue-50 text-slate-800 hover:text-blue-700 border border-slate-200/80"
+                            }`}
+                          >
+                            <span>Request GST Quote</span>
+                            <ArrowRight className="size-3.5" />
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Core Capabilities */}
               <div>

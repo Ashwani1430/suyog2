@@ -59,11 +59,23 @@ export const TRUST_ITEMS: { value?: number; suffix?: string; label: string }[] =
   { label: "Enterprise Solutions" },
 ];
 
+export interface ProductPricePlan {
+  name: string;
+  tag?: string;
+  popular?: boolean;
+  perpetualPrice?: string;
+  perpetualNote?: string;
+  rentalPrices?: { duration: string; price: string; note?: string }[];
+  features: string[];
+}
+
 export interface TallyProductItem {
   id: string;
   name: string;
   tagline: string;
   badge: string;
+  startingPrice: string;
+  startingPriceNote?: string;
   logo: string;
   icon: string;
   description: string;
@@ -71,6 +83,7 @@ export interface TallyProductItem {
   overview: string;
   keyCapabilities: { title: string; desc: string }[];
   editionsOrDeployment: { name: string; desc: string }[];
+  pricingPlans: ProductPricePlan[];
   suyogAdvantages: string[];
 }
 
@@ -80,6 +93,8 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
     name: "TallyPrime",
     tagline: "Complete Business Management Software",
     badge: "Flagship ERP",
+    startingPrice: "From ₹750/mo or ₹22,500",
+    startingPriceNote: "Official Pricing • Excl. 18% GST",
     logo: tallyPrimeLogo,
     icon: "LayoutDashboard",
     description:
@@ -120,6 +135,43 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
         desc: "Multi-user edition allowing unlimited simultaneous users across an office Local Area Network (LAN).",
       },
     ],
+    pricingPlans: [
+      {
+        name: "TallyPrime Silver",
+        tag: "Single Standalone PC",
+        perpetualPrice: "₹22,500",
+        perpetualNote: "Lifetime License • Includes 12 Months Free TSS",
+        rentalPrices: [
+          { duration: "1 Month", price: "₹750" },
+          { duration: "3 Months", price: "₹2,138", note: "Effective ₹712.5/mo" },
+          { duration: "12 Months", price: "₹8,100", note: "Effective ₹675/mo (Save 10%)" },
+        ],
+        features: [
+          "Complete accounting, invoicing, inventory & banking features",
+          "100% GST, e-Way bill & e-Invoice generation",
+          "Single-user desktop installation on 1 PC",
+          "Includes 1 Year complimentary Tally Software Services (TSS)",
+        ],
+      },
+      {
+        name: "TallyPrime Gold",
+        tag: "Unlimited Multi-User LAN",
+        popular: true,
+        perpetualPrice: "₹67,500",
+        perpetualNote: "Lifetime License • Includes 12 Months Free TSS",
+        rentalPrices: [
+          { duration: "1 Month", price: "₹2,250" },
+          { duration: "3 Months", price: "₹6,413", note: "Effective ₹2,137.5/mo" },
+          { duration: "12 Months", price: "₹24,300", note: "Effective ₹2,025/mo (Save 10%)" },
+        ],
+        features: [
+          "Unlimited PCs on office Local Area Network (LAN)",
+          "Simultaneous multi-user data entry, billing & reporting",
+          "Full security matrix, user roles & audit trail controls",
+          "Includes 1 Year complimentary Tally Software Services (TSS)",
+        ],
+      },
+    ],
     suyogAdvantages: [
       "Authorized 5-Star Tally Sales & Certified Solution Partner",
       "Custom invoice template designing, voucher customization & TDL plugins",
@@ -132,6 +184,8 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
     name: "Tally Software Services (TSS)",
     tagline: "Annual Innovation & Compliance Subscription",
     badge: "Essential Service",
+    startingPrice: "From ₹4,500 / year",
+    startingPriceNote: "Annual Renewal • Excl. 18% GST",
     logo: tssLogo,
     icon: "RefreshCw",
     description:
@@ -172,6 +226,56 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
         desc: "Annual service renewal for multi-user TallyPrime Gold installations.",
       },
     ],
+    pricingPlans: [
+      {
+        name: "TSS Silver Renewal",
+        tag: "For TallyPrime Silver",
+        perpetualPrice: "₹4,500",
+        perpetualNote: "1 Year Annual Renewal (+ 18% GST)",
+        rentalPrices: [
+          { duration: "1 Year", price: "₹4,500 / yr" },
+          { duration: "2 Years", price: "₹8,100", note: "10% Multi-Year Discount" },
+        ],
+        features: [
+          "Continuous statutory tax & GST amendments",
+          "Automated e-invoice & e-way bill generation updates",
+          "Tally reports in any mobile/tablet browser via Tally.NET",
+          "Connected banking formats & digital cheque templates",
+        ],
+      },
+      {
+        name: "TSS Gold Renewal",
+        tag: "For TallyPrime Gold",
+        popular: true,
+        perpetualPrice: "₹13,500",
+        perpetualNote: "1 Year Annual Renewal (+ 18% GST)",
+        rentalPrices: [
+          { duration: "1 Year", price: "₹13,500 / yr" },
+          { duration: "2 Years", price: "₹24,300", note: "10% Multi-Year Discount" },
+        ],
+        features: [
+          "Multi-user statutory updates across all office workstations",
+          "Multi-branch data synchronization across warehouses & HQ",
+          "Browser reporting for multiple directors & stakeholders",
+          "Instant access to all new TallyPrime major version releases",
+        ],
+      },
+      {
+        name: "TSS Auditor Edition",
+        tag: "For Chartered Accountants",
+        perpetualPrice: "₹6,750",
+        perpetualNote: "1 Year Annual Renewal (+ 18% GST)",
+        rentalPrices: [
+          { duration: "1 Year", price: "₹6,750 / yr" },
+          { duration: "2 Years", price: "₹12,150", note: "10% Multi-Year Discount" },
+        ],
+        features: [
+          "Statutory audit & verification tools",
+          "Client data analysis & audit trail review",
+          "Direct Tally.NET synchronization with client companies",
+        ],
+      },
+    ],
     suyogAdvantages: [
       "Hassle-free automated license renewal & instant activation key delivery",
       "Assisted version upgrades with zero business downtime",
@@ -184,6 +288,8 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
     name: "TallyPrime Server",
     tagline: "Enterprise Concurrency & High Performance",
     badge: "Enterprise Edition",
+    startingPrice: "₹2,70,000 (Enterprise)",
+    startingPriceNote: "Perpetual License • Excl. 18% GST",
     logo: tallyServerLogo,
     icon: "Server",
     description:
@@ -224,6 +330,39 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
         desc: "Redundant cluster setup with failover support for mission-critical corporate installations.",
       },
     ],
+    pricingPlans: [
+      {
+        name: "TallyPrime Server Enterprise License",
+        tag: "Dedicated Enterprise Architecture",
+        popular: true,
+        perpetualPrice: "₹2,70,000",
+        perpetualNote: "Lifetime License (+ 18% GST = ₹3,18,600 Total)",
+        rentalPrices: [
+          { duration: "Concurrent Architecture", price: "Works with TallyPrime Gold" },
+        ],
+        features: [
+          "Dedicated multi-threading engine for 10 to 100+ concurrent operators",
+          "Zero wait queues or report generation slowdowns",
+          "Airtight data path concealment protecting against ransomware & data leaks",
+          "Uninterrupted automated background backups during live transactions",
+          "Live admin monitoring & real-time session audit",
+        ],
+      },
+      {
+        name: "Annual Server TSS & Support",
+        tag: "Enterprise Maintenance",
+        perpetualPrice: "₹54,000",
+        perpetualNote: "Annual Renewal (+ 18% GST)",
+        rentalPrices: [
+          { duration: "Annual Server TSS", price: "₹54,000 / year" },
+        ],
+        features: [
+          "All server version updates & performance patches",
+          "Priority corporate SLA support from SUYOG senior engineers",
+          "Continuous server health checks & database optimization",
+        ],
+      },
+    ],
     suyogAdvantages: [
       "Server architecture consultation, hardware sizing, and OS optimization",
       "Complete installation, data segmentation, and permission matrix setup",
@@ -236,6 +375,8 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
     name: "Tally on Cloud",
     tagline: "Anywhere, Anytime Secure Remote Access",
     badge: "Cloud Managed",
+    startingPrice: "From ₹450 - ₹600 / user / mo",
+    startingPriceNote: "Managed Cloud • Excl. 18% GST",
     logo: tallyCloudLogo,
     icon: "Cloud",
     description:
@@ -274,6 +415,56 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
       {
         name: "Corporate Dedicated Cluster",
         desc: "High-compute dedicated virtual machine with custom RAM, CPU, and unlimited storage for 10+ users.",
+      },
+    ],
+    pricingPlans: [
+      {
+        name: "Starter Cloud",
+        tag: "1 - 3 Users",
+        perpetualPrice: "₹600",
+        perpetualNote: "Per User / Month (Billed Quarterly or Annually)",
+        rentalPrices: [
+          { duration: "Monthly", price: "₹600 / user / mo" },
+          { duration: "Annual", price: "₹6,480 / user / yr", note: "10% Savings" },
+        ],
+        features: [
+          "Anywhere access via Windows, Mac, iPad, Android & Web Browser",
+          "Daily automated cloud backups & snapshot recovery",
+          "Enterprise SSL encryption & 2-factor authentication",
+          "Zero hardware maintenance or local server costs",
+        ],
+      },
+      {
+        name: "Business Cloud",
+        tag: "4 - 10 Users",
+        popular: true,
+        perpetualPrice: "₹500",
+        perpetualNote: "Per User / Month (Billed Quarterly or Annually)",
+        rentalPrices: [
+          { duration: "Monthly", price: "₹500 / user / mo" },
+          { duration: "Annual", price: "₹5,400 / user / yr", note: "10% Savings" },
+        ],
+        features: [
+          "Dedicated RAM & ultra-fast NVMe storage tier",
+          "Optimized multi-user concurrency & zero latency",
+          "Local printer & barcode scanner pass-through support",
+          "99.9% uptime guarantee with priority assistance",
+        ],
+      },
+      {
+        name: "Enterprise Dedicated Cloud",
+        tag: "10+ Users & Multi-Branch",
+        perpetualPrice: "₹450",
+        perpetualNote: "Per User / Month (Volume Sizing)",
+        rentalPrices: [
+          { duration: "Custom Volume", price: "₹450 / user / mo" },
+        ],
+        features: [
+          "Private isolated cloud cluster with dedicated IP",
+          "Multi-branch automated synchronization",
+          "Custom TDL extensions & third-party API connectivity",
+          "Dedicated account manager & 24x7 disaster recovery SLA",
+        ],
       },
     ],
     suyogAdvantages: [

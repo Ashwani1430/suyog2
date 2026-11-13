@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowLeft, ArrowRight, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { CASE_STUDIES } from "@/data/suyog";
@@ -8,7 +8,6 @@ import { Reveal, Section, SectionHeading } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
 
 export function Customized() {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const active = openIndex === null ? null : CASE_STUDIES[openIndex];
 
@@ -21,56 +20,27 @@ export function Customized() {
     return () => window.removeEventListener("keydown", onKey);
   }, [openIndex]);
 
-  const scrollBy = (dir: 1 | -1) => {
-    trackRef.current?.scrollBy({ left: dir * 340, behavior: "smooth" });
-  };
-
   return (
     <Section id="customized" className="border-y border-primary/10 bg-secondary/25">
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-        <SectionHeading
-          align="left"
-          eyebrow="Customized Solutions"
-          title={
-            <>
-              Tailoring Tally to <span className="gradient-text">Your Business</span>
-            </>
-          }
-          body="Every business works differently. SUYOG customizes Tally-based solutions around your workflows, reporting requirements and operational needs."
-        />
-        <div className="flex gap-3">
-          <button
-            type="button"
-            aria-label="Previous case studies"
-            onClick={() => scrollBy(-1)}
-            className="grid size-12 place-items-center rounded-full border border-primary/20 bg-surface shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary hover:shadow-sm"
-          >
-            <ArrowLeft className="size-5" />
-          </button>
-          <button
-            type="button"
-            aria-label="Next case studies"
-            onClick={() => scrollBy(1)}
-            className="grid size-12 place-items-center rounded-full border border-primary/20 bg-surface shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary hover:shadow-sm"
-          >
-            <ArrowRight className="size-5" />
-          </button>
-        </div>
-      </div>
+      <SectionHeading
+        eyebrow="Customized Solutions"
+        title={
+          <>
+            Tailoring Tally to <span className="gradient-text">Your Business</span>
+          </>
+        }
+        body="Every business works differently. SUYOG customizes Tally-based solutions around your workflows, reporting requirements and operational needs."
+      />
 
-      {/* Symmetrical Equal-Height Carousel Track */}
-      <div
-        ref={trackRef}
-        className="mt-12 flex items-stretch snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pt-2 px-1"
-        style={{ scrollbarWidth: "none" }}
-      >
+      {/* Symmetrical Equal-Height Fixed Grid (Matching SUYOG Products Layout) */}
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
         {CASE_STUDIES.map((study, i) => (
-          <Reveal key={study.client} delay={i * 0.05} className="snap-start shrink-0 h-[420px] sm:h-[440px] flex">
-            <Tilt3DCard maxTilt={6} className="h-full flex flex-col" containerClassName="h-full flex">
+          <Reveal key={study.client} delay={i * 0.05} className="w-full h-full flex justify-center">
+            <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
               <button
                 type="button"
                 onClick={() => setOpenIndex(i)}
-                className="gradient-ring group flex h-[420px] sm:h-[440px] w-[19rem] sm:w-[22rem] flex-col justify-between rounded-3xl glass p-6 sm:p-7 text-left shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.16)] cursor-pointer"
+                className="gradient-ring group flex h-full w-full max-w-md sm:max-w-none mx-auto flex-col justify-between rounded-3xl glass p-6 sm:p-7 text-left shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.16)] cursor-pointer"
               >
                 <div>
                   {/* Category & Badge Header */}
@@ -92,7 +62,7 @@ export function Customized() {
                       alt={study.client}
                       className={cn(
                         "max-h-16 sm:max-h-18 max-w-[85%] w-auto object-contain transition-transform duration-300 group-hover:scale-105",
-                        study.scale
+                        study.scale,
                       )}
                       loading="lazy"
                     />
@@ -109,8 +79,8 @@ export function Customized() {
                   </p>
                 </div>
 
-                <span className="mt-auto pt-4 border-t border-slate-100/90 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary">
-                  View case study
+                <span className="mt-auto pt-5 border-t border-slate-100/90 inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary">
+                  <span>View case study</span>
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
               </button>
