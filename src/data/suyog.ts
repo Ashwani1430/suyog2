@@ -47,6 +47,7 @@ export const FOOTER_LINKS = [
   { label: "ERP Integration", href: "#erp-integration" },
   { label: "Customized Solutions", href: "#customized" },
   { label: "Leading Clients", href: "#clients" },
+  { label: "Client Testimonials", href: "#testimonials" },
   { label: "Trusted Partners", href: "#partners" },
   { label: "Contact Us", href: "#contact" },
 ];

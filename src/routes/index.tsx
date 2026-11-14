@@ -14,6 +14,7 @@ import { Industries, SuyogProducts, TallyProducts } from "@/components/site/Prod
 import { ErpIntegration } from "@/components/site/ErpIntegration";
 import { Customized } from "@/components/site/Customized";
 import { TrustedPartners } from "@/components/site/TrustedPartners";
+import { Testimonials } from "@/components/site/Testimonials";
 import { ContactSection } from "@/components/site/ContactSection";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CONTACT } from "@/data/suyog";
@@ -96,7 +97,7 @@ function Index() {
         <WhySuyog />
         <FlowVisual />
         <Clients />
-
+        <Testimonials />
         <LeadCta />
         <ContactSection />
       </main>

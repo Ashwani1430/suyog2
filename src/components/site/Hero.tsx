@@ -61,7 +61,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto w-full max-w-[1360px] px-5 sm:px-8">
         {/* Slider Controls Strip (Top / Clean pill tabs) */}
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div className="inline-flex items-center gap-2 rounded-2xl border border-slate-200/80 bg-white/90 p-1.5 shadow-xs backdrop-blur-md">
@@ -126,33 +126,33 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 16 }}
               transition={{ duration: 0.45, ease: "easeInOut" }}
-              className="grid w-full items-center gap-10 lg:grid-cols-[1.05fr_1.15fr] lg:gap-14"
+              className="grid w-full items-center gap-10 lg:grid-cols-[0.82fr_1.38fr] lg:gap-10 xl:gap-12"
             >
               {/* Left Column: Authoritative Enterprise Messaging */}
               <div>
-                <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-200/80 bg-white/90 px-4 py-2 text-xs font-bold tracking-wide text-blue-700 shadow-sm backdrop-blur-md">
+                <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-200/80 bg-white/90 px-3.5 py-1.5 text-xs font-bold tracking-wide text-blue-700 shadow-sm backdrop-blur-md">
                   <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse" />
                   <ShieldCheck className="size-4 text-blue-600" />
                   <span>ESTD. 1990 • Premier Tally &amp; Enterprise IT Partner</span>
                 </div>
 
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.65rem]">
+                <h1 className="mt-5 text-2xl font-extrabold leading-[1.14] tracking-tight text-slate-900 sm:text-3xl lg:text-[2.35rem] xl:text-[2.6rem]">
                   Bringing Efficient Tools and{" "}
                   <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                     Solution for Business Analytics
                   </span>
                 </h1>
 
-                <p className="mt-6 max-w-xl text-base font-normal leading-relaxed text-slate-600 sm:text-lg">
+                <p className="mt-4 max-w-lg text-sm font-normal leading-relaxed text-slate-600 sm:text-base">
                   For over 36 years, SUYOG has engineered tailored TallyPrime integrations,
                   secure cloud hosting, and enterprise automation modules to give leadership complete,
                   uninterrupted control of their operations.
                 </p>
 
-                <div className="mt-9 flex flex-wrap items-center gap-4">
+                <div className="mt-6 flex flex-wrap items-center gap-3.5">
                   <a
                     href="#contact"
-                    className="btn-shimmer group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 px-8 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/40"
+                    className="btn-shimmer group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/40"
                   >
                     Talk to an Expert
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -160,7 +160,7 @@ export function Hero() {
 
                   <a
                     href={`tel:${PRIMARY_TEL}`}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white/90 px-6 py-4 text-sm font-bold text-slate-800 shadow-xs backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600 hover:shadow-sm"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white/90 px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 shadow-xs backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600 hover:shadow-sm"
                   >
                     <Phone className="size-4 text-blue-600" />
                     <span>{PRIMARY_PHONE}</span>
@@ -168,30 +168,30 @@ export function Hero() {
                 </div>
 
                 {/* Trust Stat Pills */}
-                <div className="mt-10 grid grid-cols-3 gap-4 border-t border-slate-200/70 pt-8">
+                <div className="mt-7 grid grid-cols-3 gap-3 border-t border-slate-200/70 pt-6">
                   <div>
-                    <p className="font-display text-3xl font-black tracking-tight text-blue-600 sm:text-4xl">
+                    <p className="font-display text-2xl font-black tracking-tight text-blue-600 sm:text-3xl">
                       <Counter to={36} suffix="+" />
                     </p>
-                    <p className="mt-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    <p className="mt-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                       Years Heritage
                     </p>
                   </div>
                   <div>
-                    <p className="font-display text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+                    <p className="font-display text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
                       <Counter to={5000} suffix="+" />
                     </p>
-                    <p className="mt-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    <p className="mt-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                       Deployments
                     </p>
                   </div>
                   <div>
                     <div className="flex items-center gap-1 text-amber-500">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="size-4 fill-amber-400 text-amber-400" />
+                        <Star key={i} className="size-3.5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="mt-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    <p className="mt-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                       5-Star Rated Support
                     </p>
                   </div>
@@ -213,12 +213,12 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
               transition={{ duration: 0.45, ease: "easeInOut" }}
-              className="grid w-full items-center gap-10 lg:grid-cols-[1.05fr_1.15fr] lg:gap-14"
+              className="grid w-full items-center gap-10 lg:grid-cols-[0.82fr_1.38fr] lg:gap-10 xl:gap-12"
             >
               {/* Left Column: Official Support Hub App Launch Details */}
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/90 px-4 py-2 text-xs font-bold tracking-wide text-blue-700 shadow-sm backdrop-blur-md">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/90 px-3.5 py-1.5 text-xs font-bold tracking-wide text-blue-700 shadow-sm backdrop-blur-md">
                     <Smartphone className="size-4 text-blue-600" />
                     <span>📢 INTRODUCING MOBILE APP</span>
                   </span>
@@ -227,7 +227,7 @@ export function Hero() {
                   </span>
                 </div>
 
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem]">
+                <h1 className="mt-5 text-2xl font-extrabold leading-[1.14] tracking-tight text-slate-900 sm:text-3xl lg:text-[2.35rem] xl:text-[2.55rem]">
                   Suyog Support Hub —{" "}
                   <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                     Your Tally Support is Now Just a Click Away!
@@ -235,44 +235,44 @@ export function Hero() {
                   📱✨
                 </h1>
 
-                <p className="mt-4 max-w-xl text-base font-normal leading-relaxed text-slate-600 sm:text-lg">
+                <p className="mt-3.5 max-w-lg text-sm font-normal leading-relaxed text-slate-600 sm:text-[15px]">
                   With the <strong className="text-slate-900 font-semibold">Suyog Support Hub App</strong>, you can experience quick, hassle-free Tally support whenever you need it:
                 </p>
 
                 {/* 3 Core Checklist Benefits */}
-                <div className="mt-5 space-y-3">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span className="text-sm sm:text-base font-bold text-slate-800">
+                <div className="mt-4 space-y-2.5">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="size-4.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-bold text-slate-800">
                       Raise support requests quickly
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="size-4.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-bold text-slate-800">
                       Enquire about new Tally products &amp; services
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="size-4.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-bold text-slate-800">
                       Stay updated with important notifications
                     </span>
                   </div>
                 </div>
 
                 {/* Core Value Motto Banner */}
-                <div className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 px-4 py-2.5 text-xs sm:text-sm font-black text-blue-800 border border-blue-200/70 shadow-xs">
+                <div className="mt-4.5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 px-3.5 py-2 text-xs sm:text-[13px] font-black text-blue-800 border border-blue-200/70 shadow-xs">
                   <span>🚀 Faster Support. Better Service. Always With You.</span>
                 </div>
 
                 {/* Download CTA Buttons */}
-                <div className="mt-7 flex flex-wrap items-center gap-3">
+                <div className="mt-5 flex flex-wrap items-center gap-2.5">
                   <a
                     href={PLAY_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-shimmer inline-flex items-center gap-2.5 rounded-full bg-slate-950 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-slate-900/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-slate-800"
+                    className="btn-shimmer inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-slate-900/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-slate-800"
                   >
                     <Download className="size-4" />
                     <span>Google Play Store</span>
@@ -282,7 +282,7 @@ export function Hero() {
                     href={IOS_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
                     <Download className="size-4" />
                     <span>Apple iOS Store</span>
@@ -291,7 +291,7 @@ export function Hero() {
                   {/* App Query Helpline Button */}
                   <a
                     href={`tel:${APP_SUPPORT_PHONE}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/90 px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 shadow-xs backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600 hover:shadow-sm"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/90 px-4 py-3 text-xs sm:text-sm font-bold text-slate-800 shadow-xs backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-600 hover:shadow-sm"
                   >
                     <Phone className="size-4 text-blue-600" />
                     <span>App Query: {APP_SUPPORT_PHONE}</span>
@@ -299,7 +299,7 @@ export function Hero() {
                 </div>
 
                 {/* Footer Attribution Tag */}
-                <p className="mt-7 text-xs font-semibold text-slate-400 border-t border-slate-200/70 pt-4">
+                <p className="mt-5 text-xs font-semibold text-slate-400 border-t border-slate-200/70 pt-3">
                   Brought to you by <strong className="text-slate-600">Suyog System &amp; Software Pvt. Ltd.</strong>
                 </p>
               </div>

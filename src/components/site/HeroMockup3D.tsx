@@ -57,7 +57,7 @@ export function HeroMockup3D() {
       />
 
       {/* Main 3D Enterprise Console Chassis */}
-      <div className="relative rounded-3xl border border-blue-200/80 bg-white/95 p-6 shadow-[0_25px_60px_-15px_rgba(29,78,216,0.18),0_0_0_1px_rgba(255,255,255,0.9)_inset] backdrop-blur-2xl">
+      <div className="relative rounded-3xl border border-blue-200/80 bg-white/95 p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(29,78,216,0.18),0_0_0_1px_rgba(255,255,255,0.9)_inset] backdrop-blur-2xl">
         {/* Top Window Navigation Bar */}
         <div className="flex items-center justify-between border-b border-slate-100 pb-4">
           <div className="flex items-center gap-2">
