@@ -21,6 +21,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { TESTIMONIALS, type TestimonialItem } from "@/data/testimonialsData";
+import { openContactModal } from "./ContactModal";
 
 export function Testimonials() {
   const [selectedTestimonial, setSelectedTestimonial] = useState<TestimonialItem | null>(null);
@@ -314,14 +315,18 @@ export function Testimonials() {
                 </div>
 
                 <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <a
-                    href="#contact"
-                    onClick={() => setSelectedTestimonial(null)}
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-xs font-bold shadow-md shadow-blue-500/20 transition-all"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const solutionTitle = `${selectedTestimonial.institution} - ${selectedTestimonial.productName}`;
+                      setSelectedTestimonial(null);
+                      openContactModal(solutionTitle);
+                    }}
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-xs font-bold shadow-md shadow-blue-500/20 transition-all cursor-pointer active:scale-95"
                   >
                     <MessageSquare className="size-3.5" />
                     <span>Inquire for Your Institute</span>
-                  </a>
+                  </button>
 
                   <button
                     type="button"

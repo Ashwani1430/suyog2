@@ -29,10 +29,22 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { openContactModal } from "./ContactModal";
 import { SUYOG_CUSTOM_ICONS, CustomTdlApiIcon } from "./SuyogProductIcons";
 
 export function TallyProducts() {
   const [selectedProduct, setSelectedProduct] = useState<TallyProductItem | null>(null);
+  const [activeCategory, setActiveCategory] = useState<"all" | "core" | "cloud-ai">("all");
+
+  const filteredProducts = TALLY_PRODUCTS.filter((product) => {
+    if (activeCategory === "core") {
+      return ["tally-prime", "tally-tss", "tally-server", "tally-cloud"].includes(product.id);
+    }
+    if (activeCategory === "cloud-ai") {
+      return ["tally-whatsapp", "tally-drive", "tally-ira"].includes(product.id);
+    }
+    return true;
+  });
 
   return (
     <Section id="tally-products">
@@ -46,8 +58,45 @@ export function TallyProducts() {
         body="Licensing, implementation, upgrades and support across the official Tally product line — certified and customized by SUYOG for your enterprise."
       />
 
-      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
-        {TALLY_PRODUCTS.map((product, i) => (
+      {/* Category Filter Pills */}
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <button
+          type="button"
+          onClick={() => setActiveCategory("all")}
+          className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+            activeCategory === "all"
+              ? "bg-blue-600 text-white shadow-sm shadow-blue-500/25"
+              : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+          }`}
+        >
+          All Solutions ({TALLY_PRODUCTS.length})
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveCategory("core")}
+          className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+            activeCategory === "core"
+              ? "bg-blue-600 text-white shadow-sm shadow-blue-500/25"
+              : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+          }`}
+        >
+          Core Platforms (4)
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveCategory("cloud-ai")}
+          className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+            activeCategory === "cloud-ai"
+              ? "bg-blue-600 text-white shadow-sm shadow-blue-500/25"
+              : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+          }`}
+        >
+          Connected Cloud &amp; AI (3)
+        </button>
+      </div>
+
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch justify-items-center sm:justify-items-stretch">
+        {filteredProducts.map((product, i) => (
           <Reveal key={product.id} delay={i * 0.07} className="w-full h-full flex justify-center">
             <Tilt3DCard maxTilt={6} className="w-full h-full flex flex-col" containerClassName="w-full flex justify-center">
               <article className="w-full max-w-md sm:max-w-none mx-auto gradient-ring group flex h-full flex-col justify-between rounded-3xl glass p-6 sm:p-7 shadow-[0_10px_30px_rgba(30,96,255,0.06)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(30,96,255,0.15)]">
@@ -284,10 +333,14 @@ export function TallyProducts() {
                         </div>
 
                         <div className="mt-4 pt-3 border-t border-slate-100">
-                          <a
-                            href="#contact"
-                            onClick={() => setSelectedProduct(null)}
-                            className={`w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2 px-3 text-xs font-bold transition-all ${
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const solutionTitle = `${selectedProduct.name} - ${plan.name}`;
+                              setSelectedProduct(null);
+                              openContactModal(solutionTitle);
+                            }}
+                            className={`w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2 px-3 text-xs font-bold transition-all cursor-pointer active:scale-95 ${
                               plan.popular
                                 ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/25"
                                 : "bg-slate-100 hover:bg-blue-50 text-slate-800 hover:text-blue-700 border border-slate-200/80"
@@ -295,7 +348,7 @@ export function TallyProducts() {
                           >
                             <span>Request GST Quote</span>
                             <ArrowRight className="size-3.5" />
-                          </a>
+                          </button>
                         </div>
                       </div>
                     ))}
@@ -387,14 +440,18 @@ export function TallyProducts() {
                 >
                   Close
                 </button>
-                <a
-                  href="#contact"
-                  onClick={() => setSelectedProduct(null)}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const solutionTitle = selectedProduct.name;
+                    setSelectedProduct(null);
+                    openContactModal(solutionTitle);
+                  }}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-white shadow-md hover:bg-primary/90 transition-all hover:scale-[1.02] cursor-pointer"
                 >
                   <span>Request Quote & Consultation</span>
                   <ArrowRight className="size-3.5" />
-                </a>
+                </button>
               </div>
             </div>
           </DialogContent>
@@ -508,13 +565,14 @@ export function SuyogProducts() {
               </div>
 
               <div className="pt-6 mt-6 border-t border-slate-100">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 transition-colors hover:text-blue-900"
+                <button
+                  type="button"
+                  onClick={() => openContactModal("Custom TDL & API Integration")}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 transition-colors hover:text-blue-900 cursor-pointer"
                 >
                   Request Custom Module
                   <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                </a>
+                </button>
               </div>
             </article>
           </Tilt3DCard>

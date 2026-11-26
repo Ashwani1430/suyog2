@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="waGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#25D366" />
+      <stop offset="100%" stop-color="#128C7E" />
+    </linearGradient>
+  </defs>
+  <!-- TallyPrime Brand Text -->
+  <text x="10" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" fill="#0f172a" letter-spacing="-0.5">Tally<tspan font-weight="700" fill="#2563eb">Prime</tspan></text>
+  
+  <!-- WhatsApp Divider & Badge -->
+  <rect x="145" y="14" width="85" height="32" rx="16" fill="url(#waGrad)" />
+  <circle cx="161" cy="30" r="10" fill="#ffffff" />
+  <!-- WhatsApp Phone Icon -->
+  <path d="M158.5 25.5 C157.2 25.5 156 26.7 156 28 C156 31 158.5 33.5 161.5 33.5 C162.8 33.5 164 32.3 164 31 L162.5 29.5 L161.5 30.5 C160.5 30 159.5 29 159 28 L160 27 Z" fill="#25D366" />
+  <text x="176" y="34" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="11" fill="#ffffff" letter-spacing="0.2">WhatsApp</text>
+</svg>

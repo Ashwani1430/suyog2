@@ -2,6 +2,9 @@ import tallyPrimeLogo from "@/assets/Logos/Website Logo/Tally-Prime.png";
 import tssLogo from "@/assets/Logos/Website Logo/tss.png";
 import tallyServerLogo from "@/assets/Logos/Website Logo/tally-prime-server.png";
 import tallyCloudLogo from "@/assets/Logos/Website Logo/Tally-Cloud.png";
+import tallyWhatsappLogo from "@/assets/Logos/Website Logo/tally-whatsapp.svg";
+import tallyDriveLogo from "@/assets/Logos/Website Logo/tally-drive.svg";
+import tallyIraLogo from "@/assets/Logos/Website Logo/tally-ira.svg";
 import growmoreLogo from "@/assets/Logos/Website Logo/Growmore.png";
 import saharaGanjLogo from "@/assets/Logos/Website Logo/Sahara Ganj.png";
 import mantoraLogo from "@/assets/Logos/Website Logo/mantoralogo.png";
@@ -349,20 +352,6 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
           "Live admin monitoring & real-time session audit",
         ],
       },
-      {
-        name: "Annual Server TSS & Support",
-        tag: "Enterprise Maintenance",
-        perpetualPrice: "₹54,000",
-        perpetualNote: "Annual Renewal (+ 18% GST)",
-        rentalPrices: [
-          { duration: "Annual Server TSS", price: "₹54,000 / year" },
-        ],
-        features: [
-          "All server version updates & performance patches",
-          "Priority corporate SLA support from SUYOG senior engineers",
-          "Continuous server health checks & database optimization",
-        ],
-      },
     ],
     suyogAdvantages: [
       "Server architecture consultation, hardware sizing, and OS optimization",
@@ -376,7 +365,7 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
     name: "Tally on Cloud",
     tagline: "Anywhere, Anytime Secure Remote Access",
     badge: "Cloud Managed",
-    startingPrice: "From ₹450 - ₹600 / user / mo",
+    startingPrice: "From ₹500 - ₹750 / user / mo",
     startingPriceNote: "Managed Cloud • Excl. 18% GST",
     logo: tallyCloudLogo,
     icon: "Cloud",
@@ -453,18 +442,19 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
         ],
       },
       {
-        name: "Enterprise Dedicated Cloud",
-        tag: "10+ Users & Multi-Branch",
-        perpetualPrice: "₹450",
-        perpetualNote: "Per User / Month (Volume Sizing)",
+        name: "Tally Prime Server Pack",
+        tag: "Enterprise Server Edition",
+        perpetualPrice: "₹750",
+        perpetualNote: "Per User / Month (+ 18% GST)",
         rentalPrices: [
-          { duration: "Custom Volume", price: "₹450 / user / mo" },
+          { duration: "Monthly", price: "₹750 / user / mo" },
+          { duration: "Annual", price: "₹8,100 / user / yr", note: "10% Savings" },
         ],
         features: [
-          "Private isolated cloud cluster with dedicated IP",
-          "Multi-branch automated synchronization",
-          "Custom TDL extensions & third-party API connectivity",
-          "Dedicated account manager & 24x7 disaster recovery SLA",
+          "High-compute multi-threading server cloud architecture",
+          "Dedicated RAM & optimized multi-user concurrency for 10+ users",
+          "Local printer, scanner & barcode pass-through integration",
+          "Continuous automated cloud backups with zero data locks",
         ],
       },
     ],
@@ -473,6 +463,295 @@ export const TALLY_PRODUCTS: TallyProductItem[] = [
       "Local printer & barcode scanner pass-through integration",
       "99.9% guaranteed uptime SLA backed by 24x7 monitoring",
       "Complimentary backup verification drills and disaster recovery support",
+    ],
+  },
+  {
+    id: "tally-whatsapp",
+    name: "TallyPrime with WhatsApp",
+    tagline: "Instant Business Communication & Invoicing on WhatsApp",
+    badge: "WhatsApp Business API",
+    startingPrice: "From ₹1,300 / year",
+    startingPriceNote: "Annual Subscription • Excl. 18% GST",
+    logo: tallyWhatsappLogo,
+    icon: "MessageSquare",
+    description:
+      "Seamlessly share invoices, payment reminders, order confirmations, and financial reports directly from TallyPrime to customers via verified WhatsApp Business API.",
+    benefits: [
+      "Instant 1-click sharing of PDF invoices & payment receipts",
+      "Embedded UPI & digital payment links for faster recovery",
+      "Single and bulk transaction dispatch directly from vouchers",
+      "Official Meta-verified WhatsApp Business Solution Provider",
+    ],
+    overview:
+      "TallyPrime with WhatsApp Business bridges your accounting software with Meta's official WhatsApp Business API. Send invoices, payment reminders, outstanding statements, purchase orders, and ledger reports instantly to customers and vendors directly as they are generated.",
+    keyCapabilities: [
+      {
+        title: "Instant Document & Invoice Dispatch",
+        desc: "Send beautifully formatted PDF or JPEG invoices, quotations, receipts, and account statements directly from TallyPrime print/export screens.",
+      },
+      {
+        title: "Integrated Payment Links for Faster Collection",
+        desc: "Embed secure digital payment and UPI links directly inside your WhatsApp messages to collect customer dues up to 3x faster.",
+      },
+      {
+        title: "Bulk & Automated Notification Center",
+        desc: "Notify dozens of clients regarding payment dues, dispatch updates, and statement summaries simultaneously with personalized templates.",
+      },
+      {
+        title: "Meta-Verified Business Identity",
+        desc: "Operates via official WhatsApp Business API (WABA) powered by Interakt, giving your company a verified, trusted green-tick-ready brand presence.",
+      },
+    ],
+    editionsOrDeployment: [
+      {
+        name: "Standard WABA Subscription",
+        desc: "Annual subscription providing full WhatsApp API connectivity inside TallyPrime.",
+      },
+      {
+        name: "Usage Top-up Wallet",
+        desc: "Flexible wallet packs covering Meta message conversations with automatic carry-forward.",
+      },
+    ],
+    pricingPlans: [
+      {
+        name: "Annual WhatsApp Subscription",
+        tag: "12-Month WABA Service",
+        popular: true,
+        perpetualPrice: "₹1,300",
+        perpetualNote: "Annual Subscription (+ 18% GST = ₹1,534 Total)",
+        rentalPrices: [
+          { duration: "1 Year Service", price: "₹1,300 / year" },
+        ],
+        features: [
+          "Full WhatsApp Business API connectivity inside TallyPrime",
+          "Official Meta Business profile with verified sender name",
+          "Pre-approved transaction templates for invoices & receipts",
+          "Dedicated onboarding & phone number verification by SUYOG",
+        ],
+      },
+      {
+        name: "Usage Wallet Top-up Pack",
+        tag: "Per-Conversation Wallet",
+        perpetualPrice: "From ₹675",
+        perpetualNote: "Wallet Recharge (+ 18% GST)",
+        rentalPrices: [
+          { duration: "Starter Wallet", price: "₹675 (₹500 Balance)" },
+          { duration: "Business Wallet", price: "Custom Top-up" },
+        ],
+        features: [
+          "Covers Meta business-initiated utility & authentication messages",
+          "Unused wallet balance carries forward upon annual renewal",
+          "Real-time balance tracking & low-balance email alerts",
+        ],
+      },
+    ],
+    suyogAdvantages: [
+      "Assistance with Meta Business Manager verification and documentation",
+      "Official phone number onboarding on the WhatsApp Business API",
+      "Configuration of pre-approved invoice, reminder, and receipt templates",
+      "Ongoing technical support for wallet recharges and connection health",
+    ],
+  },
+  {
+    id: "tally-drive",
+    name: "TallyDrive",
+    tagline: "Secure Automated Cloud Backup Built into TallyPrime",
+    badge: "Cloud Backup & Sync",
+    startingPrice: "Free with TSS • Expandable",
+    startingPriceNote: "1-3 GB Free with Active TSS • Excl. 18% GST",
+    logo: tallyDriveLogo,
+    icon: "HardDrive",
+    description:
+      "Safeguard your critical accounting data with automated scheduled cloud backups, incremental encryption, and one-click instant disaster recovery directly inside TallyPrime.",
+    benefits: [
+      "1 to 3 GB complimentary cloud storage with active TSS",
+      "Automated scheduled daily, weekly, or monthly backups",
+      "Space-saving incremental compression (saves only changes)",
+      "Full compliance with government electronic audit regulations",
+    ],
+    overview:
+      "TallyDrive is the official cloud backup and storage solution built directly into TallyPrime. Designed to eliminate the danger of ransomware attacks, local disk crashes, and accidental deletions, it automatically syncs compressed, encrypted snapshots to secure cloud infrastructure without third-party tools.",
+    keyCapabilities: [
+      {
+        title: "Automated Background Cloud Backups",
+        desc: "Schedule automated backups to run silently in the background daily or upon company closing without interrupting accounting staff.",
+      },
+      {
+        title: "Smart Incremental Space Optimization",
+        desc: "After the initial upload, TallyDrive only transfers modified data blocks, minimizing bandwidth and saving cloud storage capacity.",
+      },
+      {
+        title: "One-Click Instant Disaster Recovery",
+        desc: "Restore company data to any point-in-time snapshot directly within TallyPrime (Alt+Y > Manage TallyDrive) without dealing with external drives.",
+      },
+      {
+        title: "Statutory Rule 46(8) Audit Compliance",
+        desc: "Meets mandated requirements for maintaining verified electronic books of accounts with off-site daily audit-trail backups.",
+      },
+    ],
+    editionsOrDeployment: [
+      {
+        name: "Complimentary Tier (With TSS)",
+        desc: "Included free of cost with active Tally Software Services subscriptions.",
+      },
+      {
+        name: "Enterprise Storage Expansion",
+        desc: "Expandable storage blocks for multi-company groups and large historical databases.",
+      },
+    ],
+    pricingPlans: [
+      {
+        name: "TSS Complimentary Storage",
+        tag: "Included with Active TSS",
+        popular: true,
+        perpetualPrice: "Free",
+        perpetualNote: "Included with Active TSS Subscription",
+        rentalPrices: [
+          { duration: "Silver (Single User)", price: "1 GB Free Cloud Storage" },
+          { duration: "Gold (Multi User)", price: "3 GB Free Cloud Storage" },
+        ],
+        features: [
+          "Automated cloud backup engine directly inside TallyPrime",
+          "Point-in-time snapshot history and version rollback",
+          "Encrypted data transmission to enterprise cloud vault",
+          "Centralized TallyDrive management report (Alt+Y)",
+        ],
+      },
+      {
+        name: "10 GB Storage Expansion Pack",
+        tag: "Expandable Cloud Space",
+        perpetualPrice: "₹1,200",
+        perpetualNote: "Annual Plan (+ 18% GST = ~₹100/mo)",
+        rentalPrices: [
+          { duration: "10 GB Pack", price: "₹1,200 / year" },
+        ],
+        features: [
+          "10 GB additional high-speed encrypted cloud storage",
+          "Ideal for multi-company groups & multi-year historical files",
+          "Seamless auto-allocation across all registered Tally serials",
+        ],
+      },
+    ],
+    suyogAdvantages: [
+      "TallyDrive configuration, backup schedule planning, and retention policy setup",
+      "Disaster recovery simulation drills to ensure guaranteed restoration",
+      "Multi-user permission matrix to restrict backup download authorizations",
+      "Assistance with storage optimization and archive segmentation",
+    ],
+  },
+  {
+    id: "tally-ira",
+    name: "TallyIra (Docs by Ira)",
+    tagline: "AI-Powered Document Processing & Voucher Automation",
+    badge: "AI Accounting Assistant",
+    startingPrice: "From ₹400 (200 Pages)",
+    startingPriceNote: "Pay-As-You-Use Page Credits • Excl. 18% GST",
+    logo: tallyIraLogo,
+    icon: "Sparkles",
+    description:
+      "Eliminate up to 80% of manual data entry with AI-powered OCR that reads invoices, bills, and bank statements (PDFs, images) and converts them into verified draft vouchers in TallyPrime.",
+    benefits: [
+      "AI-driven extraction of vendor, invoice number, items, and GST",
+      "Converts PDF/JPEG bills into accounting-ready draft vouchers",
+      "Automatic ledger and stock item mapping with exception alerts",
+      "Upload via mobile camera, desktop, email, or WhatsApp",
+    ],
+    overview:
+      "TallyIra (featuring Docs by Ira) introduces native artificial intelligence into your accounting workflow. Instead of spending hours typing purchase bills, expense receipts, and bank statements into TallyPrime, simply scan or upload the files. The AI extracts every line item, maps masters, and creates draft vouchers for human review.",
+    keyCapabilities: [
+      {
+        title: "Automated Invoice & Receipt OCR Extraction",
+        desc: "Reads digital PDFs, scanned bills, photos, and handwritten invoices with high-accuracy machine learning tailored for Indian GST formats.",
+      },
+      {
+        title: "Accounting-Ready Draft Vouchers",
+        desc: "Converts parsed data into draft purchase and payment vouchers inside TallyPrime, letting accountants review, edit, and approve before posting.",
+      },
+      {
+        title: "Smart Master Matching & Duplicate Prevention",
+        desc: "Intelligently maps supplier names and inventory items to existing Tally masters and flags duplicate invoices to prevent double-payments.",
+      },
+      {
+        title: "Omnichannel Document Ingestion",
+        desc: "Submit documents via the TallyIra mobile app, direct email forwarding, drag-and-drop desktop upload, or direct WhatsApp forward.",
+      },
+    ],
+    editionsOrDeployment: [
+      {
+        name: "Regular Page Packs",
+        desc: "Page-credit bundles valid for 1 year, suitable for SMEs and growing accounting teams.",
+      },
+      {
+        name: "Enterprise Pro Packs",
+        desc: "High-volume page quotas for auditing firms, multi-branch retailers, and corporate finance hubs.",
+      },
+    ],
+    pricingPlans: [
+      {
+        name: "Regular Pack S (200 Pages)",
+        tag: "Starter SME Pack",
+        perpetualPrice: "₹400",
+        perpetualNote: "1 Year Validity (+ 18% GST = ₹472 Total)",
+        rentalPrices: [
+          { duration: "200 Pages", price: "₹400 (₹2.00 / page)" },
+        ],
+        features: [
+          "200 AI-processed document pages with 1-year validity",
+          "Automated extraction of GSTIN, HSN, line items & taxes",
+          "Draft voucher creation inside TallyPrime",
+          "Mobile app & desktop browser upload access",
+        ],
+      },
+      {
+        name: "Regular Pack M (400 Pages)",
+        tag: "Growing Business Pack",
+        popular: true,
+        perpetualPrice: "₹800",
+        perpetualNote: "1 Year Validity (+ 18% GST = ₹944 Total)",
+        rentalPrices: [
+          { duration: "400 Pages", price: "₹800 (₹2.00 / page)" },
+        ],
+        features: [
+          "400 AI-processed document pages with 1-year validity",
+          "Multi-user upload capability across purchase & store desks",
+          "Bank statement PDF parsing & reconciliation support",
+          "Automated ledger matching & exception alerts",
+        ],
+      },
+      {
+        name: "Regular Pack L (600 Pages)",
+        tag: "High-Volume Processing",
+        perpetualPrice: "₹1,200",
+        perpetualNote: "1 Year Validity (+ 18% GST = ₹1,416 Total)",
+        rentalPrices: [
+          { duration: "600 Pages", price: "₹1,200 (₹2.00 / page)" },
+        ],
+        features: [
+          "600 AI-processed document pages with 1-year validity",
+          "Fast-track batch processing for hundreds of monthly invoices",
+          "Comprehensive audit trail & original document link inside Tally",
+        ],
+      },
+      {
+        name: "Pro Pack (3,000 Pages)",
+        tag: "Enterprise & CA Practice",
+        perpetualPrice: "₹4,500",
+        perpetualNote: "1 Year Validity (+ 18% GST = ₹1.50 / page)",
+        rentalPrices: [
+          { duration: "3,000 Pages", price: "₹4,500 (₹1.50 / page)" },
+        ],
+        features: [
+          "3,000 AI-processed document pages with 1-year validity",
+          "Lowest per-page rate (₹1.50/page) for CA firms and enterprises",
+          "Priority AI queue processing and dedicated SUYOG setup",
+        ],
+      },
+    ],
+    suyogAdvantages: [
+      "End-to-end setup of TallyIra mobile app and TallyPrime integration",
+      "Accountant training for draft voucher review and master mapping workflows",
+      "Workflow design for WhatsApp and email auto-forwarding ingestion",
+      "Ongoing assistance with invoice template tuning and page top-ups",
     ],
   },
 ];

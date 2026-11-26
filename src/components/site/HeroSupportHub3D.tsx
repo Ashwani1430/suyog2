@@ -21,19 +21,19 @@ const APP_SUPPORT_PHONE = "7607729292";
 
 export function HeroSupportHub3D() {
   return (
-    <div className="relative w-full preserve-3d select-none">
-      {/* Ambient Backlight Glow behind the 3D console */}
+    <div className="relative w-full select-none">
+      {/* Ambient Backlight Glow behind the console */}
       <div
-        className="pointer-events-none absolute -inset-4 rounded-3xl opacity-60 blur-2xl"
+        className="pointer-events-none absolute -inset-3 rounded-3xl opacity-50 blur-2xl"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.28) 0%, rgba(6, 182, 212, 0.22) 40%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.24) 0%, rgba(6, 182, 212, 0.16) 45%, transparent 70%)",
         }}
         aria-hidden="true"
       />
 
-      {/* Main 3D Support Hub Console Chassis */}
-      <div className="relative rounded-3xl border border-blue-200/80 bg-white/95 p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(29,78,216,0.18),0_0_0_1px_rgba(255,255,255,0.9)_inset] backdrop-blur-2xl">
+      {/* Main Support Hub Console Chassis */}
+      <div className="relative rounded-3xl border border-slate-200/90 bg-white/95 p-6 sm:p-7 shadow-[0_20px_50px_-12px_rgba(30,64,175,0.14)] backdrop-blur-xl transition-all duration-300 hover:shadow-[0_25px_60px_-10px_rgba(30,64,175,0.2)] hover:border-blue-200">
         {/* Top Window Navigation Bar */}
         <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
           <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ export function HeroSupportHub3D() {
         </div>
 
         {/* Console Body: Smartphone Mockup & Dual QR Codes */}
-        <div className="mt-4 w-full rounded-2xl border border-blue-200/90 bg-gradient-to-b from-white via-white to-blue-50/40 p-6 sm:p-7 shadow-[0_14px_36px_rgba(30,96,255,0.09)] flex flex-col justify-between gap-6">
+        <div className="mt-4 w-full rounded-2xl border border-blue-200/90 bg-gradient-to-b from-white via-white to-blue-50/40 p-6 sm:p-7 shadow-[0_14px_36px_rgba(30,96,255,0.07)] flex flex-col justify-between gap-6">
           {/* Top Brand Banner */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
             <div className="flex items-center gap-3">
@@ -263,44 +263,6 @@ export function HeroSupportHub3D() {
               <span>App Helpline: {APP_SUPPORT_PHONE}</span>
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* Floating 3D Holographic Layer 1: Top Right Badge */}
-      <div
-        className="float-slow absolute -right-3 -top-5 hidden sm:flex items-center gap-2.5 rounded-2xl border border-blue-200/90 bg-white/95 px-3.5 py-2.5 shadow-[0_20px_40px_rgba(29,78,216,0.18)] backdrop-blur-xl"
-        style={{
-          transform: "translateZ(70px)",
-          transformStyle: "preserve-3d",
-        }}
-      >
-        <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-500/30">
-          <Smartphone className="size-4.5" />
-        </span>
-        <div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">
-            Live Support App
-          </span>
-          <p className="text-xs font-bold text-slate-900">Android &amp; iOS</p>
-        </div>
-      </div>
-
-      {/* Floating 3D Holographic Layer 2: Bottom Left Badge */}
-      <div
-        className="float-slow-reverse absolute -bottom-6 sm:-bottom-7 left-0 sm:-left-8 flex items-center gap-2.5 rounded-2xl border border-blue-200/90 bg-white/95 px-3 py-2 sm:px-4 sm:py-2.5 shadow-[0_20px_40px_rgba(29,78,216,0.18)] backdrop-blur-xl"
-        style={{
-          transform: "translateZ(85px)",
-          transformStyle: "preserve-3d",
-        }}
-      >
-        <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-tr from-amber-400 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/30">
-          <Sparkles className="size-4.5 fill-slate-950" />
-        </span>
-        <div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700">
-            Free Access
-          </span>
-          <p className="text-xs font-bold text-slate-900">All Tally Users</p>
         </div>
       </div>
     </div>

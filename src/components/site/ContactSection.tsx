@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Loader2, MapPin, Phone, Send } from "lucide-react";
+import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { CONTACT, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
+import { sendEnquiryEmail } from "@/lib/send-enquiry";
 import { Reveal, Section } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
 
@@ -45,11 +47,35 @@ export function ContactSection() {
     return Object.keys(next).length === 0;
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setStatus("sending");
-    window.setTimeout(() => setStatus("sent"), 700);
+    try {
+      await sendEnquiryEmail({
+        data: {
+          name: values.name,
+          email: values.email,
+          mobile: values.mobile,
+          subject: values.subject,
+          message: values.message,
+        },
+      });
+      setStatus("sent");
+      toast.success("Enquiry sent successfully! Our team will contact you shortly.");
+      setValues({
+        name: "",
+        email: "",
+        mobile: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err: unknown) {
+      console.error(err);
+      setStatus("idle");
+      const msg = err instanceof Error ? err.message : "Failed to send enquiry. Please try again.";
+      toast.error(msg);
+    }
   };
 
   return (

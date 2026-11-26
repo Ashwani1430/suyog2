@@ -7,6 +7,7 @@ import { CLIENT_LOGOS } from "@/data/clientsData";
 import { Counter, Icon, Reveal, Section, SectionHeading } from "./primitives";
 import { Tilt3DCard } from "./Tilt3DCard";
 import { WHY_SUYOG_CUSTOM_ICONS } from "./WhySuyogIcons";
+import { openContactModal } from "./ContactModal";
 
 export function TrustStrip() {
   return (
@@ -327,13 +328,14 @@ export function LeadCta() {
             organization.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <a
-              href="#contact"
-              className="btn-shimmer group inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-accent)] px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(30,96,255,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(30,96,255,0.45)]"
+            <button
+              type="button"
+              onClick={() => openContactModal("General Consultation")}
+              className="btn-shimmer group inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-accent)] px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(30,96,255,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(30,96,255,0.45)] cursor-pointer active:scale-95"
             >
               Talk to an Expert
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </button>
             <a
               href={`tel:${PRIMARY_TEL}`}
               className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-surface px-8 py-4 text-sm font-semibold text-foreground shadow-xs backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary"

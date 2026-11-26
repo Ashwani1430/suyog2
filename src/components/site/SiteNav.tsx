@@ -3,6 +3,7 @@ import { ChevronRight, Menu, Phone, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { NAV_LINKS, PRIMARY_PHONE, PRIMARY_TEL } from "@/data/suyog";
+import { openContactModal } from "./ContactModal";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -59,12 +60,13 @@ export function SiteNav() {
 
         {/* Right Action (Call button hidden as requested, primary CTA prominent) */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          <a
-            href="#contact"
-            className="btn-shimmer hidden sm:inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/35"
+          <button
+            type="button"
+            onClick={() => openContactModal()}
+            className="btn-shimmer hidden sm:inline-flex items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/35 cursor-pointer"
           >
             Talk to an Expert
-          </a>
+          </button>
 
           <button
             type="button"
@@ -107,13 +109,16 @@ export function SiteNav() {
             ))}
           </ul>
           <div className="mt-auto mb-8 space-y-3">
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="btn-shimmer block w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 py-3.5 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-500/30"
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openContactModal();
+              }}
+              className="btn-shimmer block w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 py-3.5 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-blue-500/30 cursor-pointer"
             >
               Talk to an Expert
-            </a>
+            </button>
             <a
               href={`tel:${PRIMARY_TEL}`}
               className="flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white py-3 text-sm font-bold text-slate-800"
@@ -136,12 +141,13 @@ export function MobileStickyCta() {
       >
         <Phone className="size-4 text-blue-600" /> Call Now
       </a>
-      <a
-        href="#contact"
-        className="btn-shimmer flex-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 text-center text-sm font-bold text-white shadow-md shadow-blue-500/25"
+      <button
+        type="button"
+        onClick={() => openContactModal()}
+        className="btn-shimmer flex-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 text-center text-sm font-bold text-white shadow-md shadow-blue-500/25 cursor-pointer"
       >
         Talk to Expert
-      </a>
+      </button>
     </div>
   );
 }
