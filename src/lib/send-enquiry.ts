@@ -63,7 +63,7 @@ export const sendEnquiryEmail = createServerFn({ method: "POST" })
       const secure = process.env["SMTP_SECURE"] === "false" ? false : true;
       const user = process.env["SMTP_USER"] || "contact@suyog.net";
       const pass = (process.env["SMTP_PASS"] || "zpkb jjji wiqs ztzl").replace(/\s+/g, "");
-      const to = process.env["MAIL_TO"] || "ashwanishukla868@gmail.com";
+      const to = process.env["MAIL_TO"] || "preet.kalsi@suyog.net";
       const from = process.env["MAIL_FROM"] || `"SUYOG Enquiries" <${user}>`;
 
       const transporter = nodemailer.createTransport({
